@@ -201,7 +201,7 @@ class MIAdata:
 # ************************************************************************************************
 
 # training of a segmentation model
-def segmentation_train(train_dataloader, val_dataloader, epochs=5, lr=2e-4, encoder='resnet18', dp=False):
+def segmentation_train(train_dataloader, val_dataloader, epochs=5, lr=2e-4, encoder='resnet18', dp=False, noise_multiplier=0.5, max_grad_norm=1.0):
     
     model = smp.Unet(
         encoder_name=encoder, 
@@ -222,8 +222,9 @@ def segmentation_train(train_dataloader, val_dataloader, epochs=5, lr=2e-4, enco
             module=model,
             optimizer=opt,
             data_loader=train_dataloader,
-            noise_multiplier=1.1,
-            max_grad_norm=0.1,
+            noise_multiplier=noise_multiplier,
+            max_grad_norm=max_grad_norm,
+            poisson_sampling=False,
         )
     else:
         opt = torch.optim.Adam(model.parameters(), lr=lr, betas=(0.9, 0.999))

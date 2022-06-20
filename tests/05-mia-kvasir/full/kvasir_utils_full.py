@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import segmentation_models_pytorch as smp
 from sklearn.metrics import accuracy_score, roc_auc_score, f1_score
 import opacus
+from opacus.privacy_engine import forbid_accumulation_hook
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -226,6 +227,7 @@ def segmentation_train(train_dataloader, val_dataloader, epochs=5, lr=2e-4, enco
             max_grad_norm=max_grad_norm,
             poisson_sampling=False,
         )
+
     else:
         opt = torch.optim.Adam(model.parameters(), lr=lr, betas=(0.9, 0.999))
 
@@ -281,9 +283,9 @@ def segmentation_train(train_dataloader, val_dataloader, epochs=5, lr=2e-4, enco
         plt.subplot(1,3,1)
         plt.imshow(img[0].detach().cpu().numpy().transpose(1,2,0).astype(int))
         plt.subplot(1,3,2)
-        plt.imshow(lbl[0,0].detach().cpu().numpy().astype(int))
+        plt.imshow(lbl[0,0].detach().cpu().numpy().astype(int), cmap='gray')
         plt.subplot(1,3,3)
-        plt.imshow(pred[0].view(img.shape[2],img.shape[3]).detach().cpu().numpy(), vmin=0, vmax=1)
+        plt.imshow(pred[0].view(img.shape[2],img.shape[3]).detach().cpu().numpy(), vmin=0, vmax=1, cmap='gray')
         plt.show()
 
     return model
@@ -301,7 +303,8 @@ def attacker_train(attack_model, shadow_model, train_dataloader, opt, criterion,
 
         opt.zero_grad()
 
-        s_output = shadow_model(data).view(data.shape[0],1,data.shape[2],data.shape[3])
+        with torch.no_grad():
+            s_output = shadow_model(data).view(data.shape[0],1,data.shape[2],data.shape[3])
 
         if attack_2ch:
             cat = labels.view(data.shape[0],1,data.shape[2],data.shape[3])
@@ -342,7 +345,8 @@ def attacker_val(attack_model, shadow_model, val_dataloader, attack_2ch=False, a
     for data, labels, targets in val_dataloader:
         data, labels, targets = data.to(device), labels.to(device), targets.to(device)
 
-        s_output = shadow_model(data).view(data.shape[0],1,data.shape[2],data.shape[3])
+        with torch.no_grad():
+            s_output = shadow_model(data).view(data.shape[0],1,data.shape[2],data.shape[3])
 
         if attack_2ch:
             cat = labels.view(data.shape[0],1,data.shape[2],data.shape[3])
@@ -376,7 +380,8 @@ def attacker_test(attack_model, victim_model, test_dataloader, attack_2ch=False,
     for data, labels, targets in test_dataloader:
         data, labels, targets = data.to(device), labels.to(device), targets.to(device)
 
-        v_output = victim_model(data).view(data.shape[0],1,data.shape[2],data.shape[3])
+        with torch.no_grad():
+            v_output = victim_model(data).view(data.shape[0],1,data.shape[2],data.shape[3])
 
         if attack_2ch:
             cat = labels.view(data.shape[0],1,data.shape[2],data.shape[3])
@@ -421,7 +426,7 @@ class MIAbase:
         # train the segmentation models with DP
         self.dp = dp
 
-    def train_victim(self, epochs=5, lr=1e-5, encoder='mobilenet_v2'):
+    def train_victim(self, epochs=5, lr=1e-5, encoder='mobilenet_v2',  noise_multiplier=0.5, max_grad_norm=1.0):
         self.victim = segmentation_train(
             self.data.victim_dataloader_train, 
             self.data.victim_dataloader_val, 
@@ -429,9 +434,11 @@ class MIAbase:
             lr=lr, 
             dp=self.dp,
             encoder=encoder,
+            noise_multiplier=noise_multiplier,
+            max_grad_norm=max_grad_norm,
         )
 
-    def train_shadow(self, epochs=5, lr=1e-5, encoder='mobilenet_v2'):
+    def train_shadow(self, epochs=5, lr=1e-5, encoder='mobilenet_v2',  noise_multiplier=0.5, max_grad_norm=1.0):
         self.shadow = segmentation_train(
             self.data.shadow_dataloader_train, 
             self.data.shadow_dataloader_val, 
@@ -439,6 +446,8 @@ class MIAbase:
             lr=lr, 
             dp=self.dp, 
             encoder=encoder,
+            noise_multiplier=noise_multiplier,
+            max_grad_norm=max_grad_norm,
         )
 
     def train_attack(self, epochs=5, lr=1e-3):

@@ -11,8 +11,8 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 # ************************************************************************************************
 
 class SegmentationModel:
-    def __init__(self, encoder):
-        self.model = smp.Unet(encoder_name=encoder, in_channels=3, classes=1,).to(device)
+    def __init__(self, encoder, in_channels=1):
+        self.model = smp.Unet(encoder_name=encoder, in_channels=in_channels, classes=1,).to(device)
 
     def train(self, train_loader, val_loader=None, lr=2e-3, epochs=5, plot=True):
         criterion = smp.losses.DiceLoss('binary')
@@ -45,7 +45,7 @@ class SegmentationModel:
 
             if plot:
                 make_plot(
-                    img[0].detach().cpu().numpy().transpose(1,2,0).astype(int),
+                    img[0].view(img.shape[2],img.shape[3]).detach().cpu().numpy().astype(int),
                     lbl[0].view(img.shape[2],img.shape[3]).detach().cpu().numpy().astype(int),
                     pred[0].view(img.shape[2],img.shape[3]).detach().cpu().numpy()
                 )
@@ -69,8 +69,8 @@ class SegmentationModel:
 # ************************************************************************************************
 
 class SegmentationModelDP:
-    def __init__(self, encoder):
-        self.model = smp.Unet(encoder_name=encoder, in_channels=3, classes=1,).to(device)
+    def __init__(self, encoder, in_channels=1):
+        self.model = smp.Unet(encoder_name=encoder, in_channels=in_channels, classes=1,).to(device)
         
         # fixing the model by removing batch norm layers
         self.model = opacus.validators.ModuleValidator.fix(self.model).to(device)
@@ -83,9 +83,9 @@ class SegmentationModelDP:
         # making model and dataloader for training private
         privacy_engine = opacus.PrivacyEngine()
         model, opt, train_dataloader = privacy_engine.make_private(
-            module=model,
+            module=self.model,
             optimizer=opt,
-            data_loader=train_dataloader,
+            data_loader=train_loader,
             noise_multiplier=noise_multiplier,
             max_grad_norm=max_grad_norm,
             poisson_sampling=True,
@@ -122,8 +122,8 @@ class SegmentationModelDP:
 
             if plot:
                 make_plot(
-                    img[0].detach().cpu().numpy().transpose(1,2,0).astype(int),
-                    lbl[0,0].detach().cpu().numpy().astype(int),
+                    img[0].view(img.shape[2],img.shape[3]).detach().cpu().numpy().astype(int),
+                    lbl[0].view(img.shape[2],img.shape[3]).detach().cpu().numpy().astype(int),
                     pred[0].view(img.shape[2],img.shape[3]).detach().cpu().numpy()
                 )
 

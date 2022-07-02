@@ -1,0 +1,759 @@
+-- Liver dataset paths loaded --
+ -- Victim model initialised --
+ -- Staring training epoch 1 --
+Training loss: 0.7413
+Validation loss: 0.6001
+ -- Staring training epoch 2 --
+Training loss: 0.5682
+ -- Staring training epoch 3 --
+Training loss: 0.4729
+ -- Staring training epoch 4 --
+Training loss: 0.4103
+ -- Staring training epoch 5 --
+Training loss: 0.356
+ -- Staring training epoch 6 --
+Training loss: 0.3045
+Validation loss: 0.2826
+ -- Staring training epoch 7 --
+Training loss: 0.2654
+ -- Staring training epoch 8 --
+Training loss: 0.2269
+ -- Staring training epoch 9 --
+Training loss: 0.1966
+ -- Staring training epoch 10 --
+Training loss: 0.1641
+ -- Staring training epoch 11 --
+Training loss: 0.1406
+Validation loss: 0.1264
+ -- Staring training epoch 12 --
+Training loss: 0.1171
+ -- Staring training epoch 13 --
+Training loss: 0.0983
+ -- Staring training epoch 14 --
+Training loss: 0.0854
+ -- Staring training epoch 15 --
+Training loss: 0.0727
+ -- Staring training epoch 16 --
+Training loss: 0.0627
+Validation loss: 0.0645
+ -- Staring training epoch 17 --
+Training loss: 0.0552
+ -- Staring training epoch 18 --
+Training loss: 0.0486
+ -- Staring training epoch 19 --
+Training loss: 0.0426
+ -- Staring training epoch 20 --
+Training loss: 0.0384
+ -- Staring training epoch 21 --
+Training loss: 0.0346
+Validation loss: 0.0429
+ -- Staring training epoch 22 --
+Training loss: 0.0316
+ -- Staring training epoch 23 --
+Training loss: 0.029
+ -- Staring training epoch 24 --
+Training loss: 0.0279
+ -- Staring training epoch 25 --
+Training loss: 0.0256
+ -- Staring training epoch 26 --
+Training loss: 0.024
+Validation loss: 0.0371
+ -- Staring training epoch 27 --
+Training loss: 0.0224
+ -- Staring training epoch 28 --
+Training loss: 0.0218
+ -- Staring training epoch 29 --
+Training loss: 0.0209
+ -- Staring training epoch 30 --
+Training loss: 0.0198
+ -- Staring training epoch 31 --
+Training loss: 0.0195
+Validation loss: 0.0329
+ -- Staring training epoch 32 --
+Training loss: 0.018
+ -- Staring training epoch 33 --
+Training loss: 0.0182
+ -- Staring training epoch 34 --
+Training loss: 0.0176
+ -- Staring training epoch 35 --
+Training loss: 0.0194
+ -- Staring training epoch 36 --
+Training loss: 0.0174
+Validation loss: 0.0313
+ -- Staring training epoch 37 --
+Training loss: 0.0168
+ -- Staring training epoch 38 --
+Training loss: 0.0165
+ -- Staring training epoch 39 --
+Training loss: 0.0165
+ -- Staring training epoch 40 --
+Training loss: 0.0157
+ -- Staring training epoch 41 --
+Training loss: 0.0155
+Validation loss: 0.0324
+ -- Staring training epoch 42 --
+Training loss: 0.0153
+ -- Staring training epoch 43 --
+Training loss: 0.0156
+ -- Staring training epoch 44 --
+Training loss: 0.0149
+ -- Staring training epoch 45 --
+Training loss: 0.0147
+ -- Staring training epoch 46 --
+Training loss: 0.0142
+Validation loss: 0.0314
+ -- Staring training epoch 47 --
+Training loss: 0.0143
+ -- Staring training epoch 48 --
+Training loss: 0.014
+ -- Staring training epoch 49 --
+Training loss: 0.0132
+ -- Staring training epoch 50 --
+Training loss: 0.0141
+ -- Staring training epoch 51 --
+Training loss: 0.0138
+Validation loss: 0.0303
+ -- Staring training epoch 52 --
+Training loss: 0.0133
+ -- Staring training epoch 53 --
+Training loss: 0.0131
+ -- Staring training epoch 54 --
+Training loss: 0.013
+ -- Staring training epoch 55 --
+Training loss: 0.0131
+ -- Staring training epoch 56 --
+Training loss: 0.0128
+Validation loss: 0.0299
+ -- Staring training epoch 57 --
+Training loss: 0.0126
+ -- Staring training epoch 58 --
+Training loss: 0.0122
+ -- Staring training epoch 59 --
+Training loss: 0.0121
+ -- Staring training epoch 60 --
+Training loss: 0.0124
+ -- Staring training epoch 61 --
+Training loss: 0.012
+Validation loss: 0.0303
+ -- Staring training epoch 62 --
+Training loss: 0.0122
+ -- Staring training epoch 63 --
+Training loss: 0.0124
+ -- Staring training epoch 64 --
+Training loss: 0.0126
+ -- Staring training epoch 65 --
+Training loss: 0.0119
+ -- Staring training epoch 66 --
+Training loss: 0.0114
+Validation loss: 0.03
+ -- Staring training epoch 67 --
+Training loss: 0.0119
+ -- Staring training epoch 68 --
+Training loss: 0.0116
+ -- Staring training epoch 69 --
+Training loss: 0.0113
+ -- Staring training epoch 70 --
+Training loss: 0.0112
+ -- Victim model trained --
+######################################################
+ -- Shadow model initialised --
+ -- Staring shadow model training --
+ -- Staring training epoch 1 --
+Training loss: 0.7772
+Validation loss: 0.7047
+ -- Staring training epoch 2 --
+Training loss: 0.675
+ -- Staring training epoch 3 --
+Training loss: 0.6226
+ -- Staring training epoch 4 --
+Training loss: 0.5839
+ -- Staring training epoch 5 --
+Training loss: 0.53
+ -- Staring training epoch 6 --
+Training loss: 0.4965
+Validation loss: 0.4939
+ -- Staring training epoch 7 --
+Training loss: 0.4515
+ -- Staring training epoch 8 --
+Training loss: 0.412
+ -- Staring training epoch 9 --
+Training loss: 0.3804
+ -- Staring training epoch 10 --
+Training loss: 0.323
+ -- Staring training epoch 11 --
+Training loss: 0.2864
+Validation loss: 0.2887
+ -- Staring training epoch 12 --
+Training loss: 0.2536
+ -- Staring training epoch 13 --
+Training loss: 0.2161
+ -- Staring training epoch 14 --
+Training loss: 0.1856
+ -- Staring training epoch 15 --
+Training loss: 0.1559
+ -- Staring training epoch 16 --
+Training loss: 0.1393
+Validation loss: 0.2314
+ -- Staring training epoch 17 --
+Training loss: 0.1201
+ -- Staring training epoch 18 --
+Training loss: 0.0999
+ -- Staring training epoch 19 --
+Training loss: 0.0873
+ -- Staring training epoch 20 --
+Training loss: 0.0728
+ -- Staring training epoch 21 --
+Training loss: 0.0785
+Validation loss: 0.1387
+ -- Staring training epoch 22 --
+Training loss: 0.0599
+ -- Staring training epoch 23 --
+Training loss: 0.0469
+ -- Staring training epoch 24 --
+Training loss: 0.0411
+ -- Staring training epoch 25 --
+Training loss: 0.037
+ -- Staring training epoch 26 --
+Training loss: 0.0328
+Validation loss: 0.0452
+ -- Staring training epoch 27 --
+Training loss: 0.0297
+ -- Staring training epoch 28 --
+Training loss: 0.0279
+ -- Staring training epoch 29 --
+Training loss: 0.0253
+ -- Staring training epoch 30 --
+Training loss: 0.0235
+ -- Staring training epoch 31 --
+Training loss: 0.0228
+Validation loss: 0.0397
+ -- Staring training epoch 32 --
+Training loss: 0.0212
+ -- Staring training epoch 33 --
+Training loss: 0.0217
+ -- Staring training epoch 34 --
+Training loss: 0.0204
+ -- Staring training epoch 35 --
+Training loss: 0.0187
+ -- Staring training epoch 36 --
+Training loss: 0.0184
+Validation loss: 0.0349
+ -- Staring training epoch 37 --
+Training loss: 0.018
+ -- Staring training epoch 38 --
+Training loss: 0.0172
+ -- Staring training epoch 39 --
+Training loss: 0.0182
+ -- Staring training epoch 40 --
+Training loss: 0.0166
+ -- Staring training epoch 41 --
+Training loss: 0.0169
+Validation loss: 0.1046
+ -- Staring training epoch 42 --
+Training loss: 0.0348
+ -- Staring training epoch 43 --
+Training loss: 0.0161
+ -- Staring training epoch 44 --
+Training loss: 0.0159
+ -- Staring training epoch 45 --
+Training loss: 0.0152
+ -- Staring training epoch 46 --
+Training loss: 0.0149
+Validation loss: 0.0301
+ -- Staring training epoch 47 --
+Training loss: 0.0148
+ -- Staring training epoch 48 --
+Training loss: 0.0152
+ -- Staring training epoch 49 --
+Training loss: 0.0142
+ -- Staring training epoch 50 --
+Training loss: 0.0137
+ -- Staring training epoch 51 --
+Training loss: 0.0134
+Validation loss: 0.03
+ -- Staring training epoch 52 --
+Training loss: 0.0143
+ -- Staring training epoch 53 --
+Training loss: 0.0371
+ -- Staring training epoch 54 --
+Training loss: 0.0356
+ -- Staring training epoch 55 --
+Training loss: 0.0135
+ -- Staring training epoch 56 --
+Training loss: 0.0131
+Validation loss: 0.0326
+ -- Staring training epoch 57 --
+Training loss: 0.0136
+ -- Staring training epoch 58 --
+Training loss: 0.0132
+ -- Staring training epoch 59 --
+Training loss: 0.0302
+ -- Staring training epoch 60 --
+Training loss: 0.0125
+ -- Staring training epoch 61 --
+Training loss: 0.0123
+Validation loss: 0.0329
+ -- Staring training epoch 62 --
+Training loss: 0.0128
+ -- Staring training epoch 63 --
+Training loss: 0.0123
+ -- Staring training epoch 64 --
+Training loss: 0.0122
+ -- Staring training epoch 65 --
+Training loss: 0.0152
+ -- Staring training epoch 66 --
+Training loss: 0.0126
+Validation loss: 0.0497
+ -- Staring training epoch 67 --
+Training loss: 0.0128
+ -- Staring training epoch 68 --
+Training loss: 0.0118
+ -- Staring training epoch 69 --
+Training loss: 0.0114
+ -- Staring training epoch 70 --
+Training loss: 0.0353
+ -- Shadow model trained --
+######################################################
+ -- Attack model initialised --
+ -- Staring attack model training --
+ -- Staring training epoch 1 --
+Training accuracy: 0.5502 , AUC: 0.5502 , F-score: 0.5443
+Validation accuracy: 0.5587 , AUC: 0.5587 , F-score: 0.5501
+TN: 379, FP: 277, FN: 302, TP: 354
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.58
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.52
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.56
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.52
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.48
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.52
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.56
+ -- Staring training epoch 2 --
+Training accuracy: 0.5898 , AUC: 0.5898 , F-score: 0.6108
+Validation accuracy: 0.5 , AUC: 0.5 , F-score: 0.0
+TN: 656, FP: 0, FN: 656, TP: 0
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.0
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.0
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.0
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.0
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.0
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.0
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.0
+ -- Staring training epoch 3 --
+Training accuracy: 0.6248 , AUC: 0.6248 , F-score: 0.6302
+Validation accuracy: 0.5938 , AUC: 0.5938 , F-score: 0.698
+TN: 163, FP: 493, FN: 40, TP: 616
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.88
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.9
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.8
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.9
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.88
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.96
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.98
+ -- Staring training epoch 4 --
+Training accuracy: 0.6492 , AUC: 0.6492 , F-score: 0.6686
+Validation accuracy: 0.6044 , AUC: 0.6044 , F-score: 0.4655
+TN: 567, FP: 89, FN: 430, TP: 226
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.1
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.16
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.18
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.22
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.32
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.36
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.56
+ -- Staring training epoch 5 --
+Training accuracy: 0.7024 , AUC: 0.7024 , F-score: 0.7045
+Validation accuracy: 0.6326 , AUC: 0.6326 , F-score: 0.7107
+TN: 238, FP: 418, FN: 64, TP: 592
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.76
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.8
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.8
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.78
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.72
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.96
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.96
+ -- Staring training epoch 6 --
+Training accuracy: 0.7199 , AUC: 0.7199 , F-score: 0.7216
+Validation accuracy: 0.5716 , AUC: 0.5716 , F-score: 0.6952
+TN: 109, FP: 547, FN: 15, TP: 641
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.9
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.96
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.92
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.92
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.98
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.98
+ -- Evaluation of subset 7 --
+Validation accuracy: 1.0
+ -- Staring training epoch 7 --
+Training accuracy: 0.7412 , AUC: 0.7412 , F-score: 0.75
+Validation accuracy: 0.6829 , AUC: 0.6829 , F-score: 0.695
+TN: 422, FP: 234, FN: 182, TP: 474
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.42
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.4
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.5
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.64
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.54
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.82
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.94
+ -- Staring training epoch 8 --
+Training accuracy: 0.7702 , AUC: 0.7702 , F-score: 0.7753
+Validation accuracy: 0.6037 , AUC: 0.6037 , F-score: 0.3939
+TN: 623, FP: 33, FN: 487, TP: 169
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.16
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.1
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.08
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.08
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.14
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.1
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.42
+ -- Staring training epoch 9 --
+Training accuracy: 0.7839 , AUC: 0.7839 , F-score: 0.789
+Validation accuracy: 0.6829 , AUC: 0.6829 , F-score: 0.7238
+TN: 351, FP: 305, FN: 111, TP: 545
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.64
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.58
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.72
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.76
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.74
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.86
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.94
+ -- Staring training epoch 10 --
+Training accuracy: 0.8059 , AUC: 0.8059 , F-score: 0.8104
+Validation accuracy: 0.6905 , AUC: 0.6905 , F-score: 0.6141
+TN: 583, FP: 73, FN: 333, TP: 323
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.1
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.22
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.18
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.28
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.4
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.48
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.66
+ -- Staring training epoch 11 --
+Training accuracy: 0.8105 , AUC: 0.8105 , F-score: 0.8109
+Validation accuracy: 0.58 , AUC: 0.58 , F-score: 0.3571
+TN: 608, FP: 48, FN: 503, TP: 153
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.08
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.14
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.14
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.14
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.22
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.2
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.28
+ -- Staring training epoch 12 --
+Training accuracy: 0.8356 , AUC: 0.8356 , F-score: 0.8359
+Validation accuracy: 0.6776 , AUC: 0.6776 , F-score: 0.5889
+TN: 586, FP: 70, FN: 353, TP: 303
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.2
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.16
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.2
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.24
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.28
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.36
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.6
+ -- Staring training epoch 13 --
+Training accuracy: 0.8615 , AUC: 0.8615 , F-score: 0.8611
+Validation accuracy: 0.6662 , AUC: 0.6662 , F-score: 0.7207
+TN: 309, FP: 347, FN: 91, TP: 565
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.68
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.6
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.64
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.82
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.74
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.98
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.96
+ -- Staring training epoch 14 --
+Training accuracy: 0.8706 , AUC: 0.8706 , F-score: 0.8728
+Validation accuracy: 0.6555 , AUC: 0.6555 , F-score: 0.5612
+TN: 571, FP: 85, FN: 367, TP: 289
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.2
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.2
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.14
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.22
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.34
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.42
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.58
+ -- Staring training epoch 15 --
+Training accuracy: 0.8881 , AUC: 0.8881 , F-score: 0.8892
+Validation accuracy: 0.6959 , AUC: 0.6959 , F-score: 0.7387
+TN: 349, FP: 307, FN: 92, TP: 564
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.64
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.62
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.68
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.76
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.8
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.92
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.92
+ -- Staring training epoch 16 --
+Training accuracy: 0.8957 , AUC: 0.8957 , F-score: 0.8983
+Validation accuracy: 0.6532 , AUC: 0.6532 , F-score: 0.5275
+TN: 603, FP: 53, FN: 402, TP: 254
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.14
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.14
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.14
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.12
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.3
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.38
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.46
+ -- Staring training epoch 17 --
+Training accuracy: 0.9178 , AUC: 0.9178 , F-score: 0.9178
+Validation accuracy: 0.5023 , AUC: 0.5023 , F-score: 0.6673
+TN: 4, FP: 652, FN: 1, TP: 655
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 1.0
+ -- Evaluation of subset 2 --
+Validation accuracy: 1.0
+ -- Evaluation of subset 3 --
+Validation accuracy: 1.0
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.98
+ -- Evaluation of subset 5 --
+Validation accuracy: 1.0
+ -- Evaluation of subset 6 --
+Validation accuracy: 1.0
+ -- Evaluation of subset 7 --
+Validation accuracy: 1.0
+ -- Staring training epoch 18 --
+Training accuracy: 0.9216 , AUC: 0.9216 , F-score: 0.922
+Validation accuracy: 0.6311 , AUC: 0.6311 , F-score: 0.4622
+TN: 620, FP: 36, FN: 448, TP: 208
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.12
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.06
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.06
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.12
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.2
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.3
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.46
+ -- Staring training epoch 19 --
+Training accuracy: 0.9094 , AUC: 0.9094 , F-score: 0.9092
+Validation accuracy: 0.6174 , AUC: 0.6174 , F-score: 0.7115
+TN: 191, FP: 465, FN: 37, TP: 619
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.84
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.84
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.9
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.92
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.92
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.98
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.98
+ -- Staring training epoch 20 --
+Training accuracy: 0.9163 , AUC: 0.9163 , F-score: 0.9175
+Validation accuracy: 0.6608 , AUC: 0.6608 , F-score: 0.559
+TN: 585, FP: 71, FN: 374, TP: 282
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.16
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.16
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.2
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.1
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.26
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.42
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.54
+ -- Staring training epoch 21 --
+Training accuracy: 0.9315 , AUC: 0.9315 , F-score: 0.9318
+Validation accuracy: 0.6768 , AUC: 0.6768 , F-score: 0.7151
+TN: 356, FP: 300, FN: 124, TP: 532
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.5
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.6
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.62
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.74
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.7
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.8
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.94
+ -- Staring training epoch 22 --
+Training accuracy: 0.9384 , AUC: 0.9384 , F-score: 0.9382
+Validation accuracy: 0.7172 , AUC: 0.7172 , F-score: 0.7367
+TN: 422, FP: 234, FN: 137, TP: 519
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.54
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.54
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.6
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.7
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.74
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.78
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.92
+ -- Staring training epoch 23 --
+Training accuracy: 0.9467 , AUC: 0.9467 , F-score: 0.947
+Validation accuracy: 0.7005 , AUC: 0.7005 , F-score: 0.6859
+TN: 490, FP: 166, FN: 227, TP: 429
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.26
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.36
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.44
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.46
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.58
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.72
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.78
+ -- Staring training epoch 24 --
+Training accuracy: 0.9475 , AUC: 0.9475 , F-score: 0.9478
+Validation accuracy: 0.6913 , AUC: 0.6913 , F-score: 0.7316
+TN: 355, FP: 301, FN: 104, TP: 552

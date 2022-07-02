@@ -1,4 +1,4 @@
--- Liver dataset paths loaded --
+ -- Liver dataset paths loaded --
  -- Victim model initialised --
  -- Staring training epoch 1 --
 Training loss: 0.7413
@@ -757,3 +757,134 @@ Validation accuracy: 0.78
 Training accuracy: 0.9475 , AUC: 0.9475 , F-score: 0.9478
 Validation accuracy: 0.6913 , AUC: 0.6913 , F-score: 0.7316
 TN: 355, FP: 301, FN: 104, TP: 552
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.58
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.6
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.72
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.8
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.74
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.86
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.92
+ -- Staring training epoch 25 --
+Training accuracy: 0.9581 , AUC: 0.9581 , F-score: 0.9583
+Validation accuracy: 0.6799 , AUC: 0.6799 , F-score: 0.7091
+TN: 380, FP: 276, FN: 144, TP: 512
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.54
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.6
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.66
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.68
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.74
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.82
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.76
+ -- Staring training epoch 26 --
+Training accuracy: 0.9566 , AUC: 0.9566 , F-score: 0.9565
+Validation accuracy: 0.7066 , AUC: 0.7066 , F-score: 0.731
+TN: 404, FP: 252, FN: 133, TP: 523
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.54
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.56
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.62
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.66
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.68
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.8
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.9
+ -- Staring training epoch 27 --
+Training accuracy: 0.9482 , AUC: 0.9482 , F-score: 0.9486
+Validation accuracy: 0.6814 , AUC: 0.6814 , F-score: 0.7348
+TN: 315, FP: 341, FN: 77, TP: 579
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.64
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.7
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.7
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.82
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.86
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.96
+ -- Evaluation of subset 7 --
+Validation accuracy: 1.0
+ -- Staring training epoch 28 --
+Training accuracy: 0.9589 , AUC: 0.9589 , F-score: 0.9589
+Validation accuracy: 0.6715 , AUC: 0.6715 , F-score: 0.7232
+TN: 318, FP: 338, FN: 93, TP: 563
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.62
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.62
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.64
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.82
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.74
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.9
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.98
+ -- Staring training epoch 29 --
+Training accuracy: 0.9551 , AUC: 0.9551 , F-score: 0.9551
+Validation accuracy: 0.6662 , AUC: 0.6662 , F-score: 0.7076
+TN: 344, FP: 312, FN: 126, TP: 530
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.54
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.68
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.72
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.72
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.66
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.78
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.88
+ -- Staring training epoch 30 --
+Training accuracy: 0.9559 , AUC: 0.9559 , F-score: 0.9559
+Validation accuracy: 0.7188 , AUC: 0.7188 , F-score: 0.6849
+TN: 542, FP: 114, FN: 255, TP: 401
+ -- Starting attack model evaluation on removed training sets --
+ -- Evaluation of subset 1 --
+Validation accuracy: 0.28
+ -- Evaluation of subset 2 --
+Validation accuracy: 0.38
+ -- Evaluation of subset 3 --
+Validation accuracy: 0.34
+ -- Evaluation of subset 4 --
+Validation accuracy: 0.56
+ -- Evaluation of subset 5 --
+Validation accuracy: 0.42
+ -- Evaluation of subset 6 --
+Validation accuracy: 0.62
+ -- Evaluation of subset 7 --
+Validation accuracy: 0.66
+ -- Attack model trained --
+######################################################

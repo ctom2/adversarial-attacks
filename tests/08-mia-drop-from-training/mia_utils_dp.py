@@ -8,18 +8,18 @@ from opacus.utils.batch_memory_manager import BatchMemoryManager
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-NOISE_MULTIPLIER=0.0
+NOISE_MULTIPLIER=1.0
 MAX_GRAD_NORM=1.0
 
 # -----------------------------------------------------------------------------------------------
 
 def train_epoch_segmentation_model(model, dataloader, epochs, lr):
-    criterion = smp.losses.DiceLoss('binary')
-    opt = torch.optim.NAdam(model.parameters(), lr=lr, betas=(0.9, 0.999))
-
     # opacus; DP management
     model = opacus.validators.ModuleValidator.fix(model).to(device)
     print(' -- Opacus validation:', opacus.validators.ModuleValidator.validate(model, strict=True), '--')
+
+    criterion = smp.losses.DiceLoss('binary')
+    opt = torch.optim.NAdam(model.parameters(), lr=lr, betas=(0.9, 0.999))
 
     privacy_engine = opacus.PrivacyEngine()
     model, opt, dataloader = privacy_engine.make_private(
@@ -37,6 +37,8 @@ def train_epoch_segmentation_model(model, dataloader, epochs, lr):
         print(' -- Staring training epoch {} --'.format(epoch + 1))
         train_loss_data = []
 
+        DELTA = 1 / len(dataloader)
+
         with BatchMemoryManager(
             data_loader=dataloader, max_physical_batch_size=4, optimizer=opt
         ) as mem_efficient_train_dataloader:
@@ -52,6 +54,8 @@ def train_epoch_segmentation_model(model, dataloader, epochs, lr):
                 train_loss_data.append(loss.item())
 
         print('Training loss:', round(np.sum(np.array(train_loss_data))/len(train_loss_data),4))
+        eps = privacy_engine.get_epsilon(DELTA)
+        print('eps:', eps)
 
     return model
 

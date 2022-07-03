@@ -8,7 +8,7 @@ from opacus.utils.batch_memory_manager import BatchMemoryManager
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-NOISE_MULTIPLIER=1.0
+NOISE_MULTIPLIER=0.5
 MAX_GRAD_NORM=1.0
 
 # -----------------------------------------------------------------------------------------------

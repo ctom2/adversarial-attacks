@@ -68,7 +68,7 @@ def train_attack_model(model, shadow_model, victim_model, dataloader, val_datalo
 
             opt.zero_grad()
             with torch.no_grad():
-                pred = model(data)
+                pred = shadow_model(data)
                 
             cat = labels.view(data.shape[0],1,data.shape[2],data.shape[3])
             s_output = torch.concat((pred, cat), dim=1)

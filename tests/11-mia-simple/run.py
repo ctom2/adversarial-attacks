@@ -44,8 +44,7 @@ victim_val_ = LiverLoader(data.victim_val_paths)
 victim_val_dataloader = DataLoader(victim_val_, batch_size=int(VICTIM_BATCH_SIZE))
 
 print(' -- Staring victim model training --')
-victim_model = train_segmentation_model(victim_model, victim_train_dataloader, lr=SEG_LR, epochs=VICTIM_TRAIN_EPOCHS)
-validate_segmentation_model(victim_model, victim_val_dataloader)
+victim_model = train_segmentation_model(victim_model, victim_train_dataloader, victim_val_dataloader, lr=SEG_LR, epochs=VICTIM_TRAIN_EPOCHS)
 
 print(' -- Victim model trained --')
 print('######################################################')
@@ -64,8 +63,7 @@ shadow_val_dataloader = DataLoader(shadow_val_, batch_size=int(SHADOW_BATCH_SIZE
 
 # classic shadow model training
 print(' -- Staring shadow model training --')
-shadow_model = train_segmentation_model(shadow_model, shadow_train_dataloader, lr=SEG_LR, epochs=SHADOW_TRAIN_EPOCHS)
-validate_segmentation_model(shadow_model, shadow_val_dataloader)
+shadow_model = train_segmentation_model(shadow_model, shadow_train_dataloader, shadow_val_dataloader, lr=SEG_LR, epochs=SHADOW_TRAIN_EPOCHS)
 
 print(' -- Shadow model trained --')
 print('######################################################')

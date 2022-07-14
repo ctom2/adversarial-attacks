@@ -49,8 +49,12 @@ def validate_segmentation_model(model, dataloader):
             loss = criterion(pred.float(), lbl.float())
             val_loss_data.append(loss.item())
 
+    val_loss = np.sum(np.array(val_loss_data))/len(val_loss_data)
+
     # Validation results
-    print('Validation loss:', round(np.sum(np.array(val_loss_data))/len(val_loss_data),4))
+    print('Validation loss:', round(val_loss,4))
+    
+    return val_loss
 
 # -----------------------------------------------------------------------------------------------
 

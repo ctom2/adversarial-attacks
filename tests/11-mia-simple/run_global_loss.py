@@ -3,16 +3,12 @@ from data import *
 from torch.utils.data import DataLoader
 from torchvision import models
 
-SEG_LR=1e-4 # use 1e-4 as default
-
-ATTACK_BATCH_SIZE=4
-ATTACK_TRAIN_EPOCHS=100
-ATTACK_INPUT_CHANNELS=2 # 2 for 2-channel attack
+SEG_LR=5e-5 # use 1e-4 as default
 
 # ################## ATTACK SETTING ##################
 seg_encoders = ['mobilenet_v2', 'resnet34', 'vgg11']
-seg_batch_size = [16]
-seg_epochs = range(70,80)
+seg_batch_size = [4,8,16]
+seg_epochs = range(70,100)
 
 VICTIM_ENCODER = np.random.choice(seg_encoders)
 VICTIM_BATCH_SIZE = np.random.choice(seg_batch_size)
@@ -68,23 +64,47 @@ shadow_model = train_segmentation_model(shadow_model, shadow_train_dataloader, s
 print(' -- Shadow model trained --')
 print('######################################################')
 
+val_loss = validate_segmentation_model(shadow_model, shadow_val_dataloader)
+val_loss = val_loss.item()
 
-# ################## ATTACK MODEL ##################
+# ################## GLOBAL LOSS ATTACK ##################
 
-attack_model = models.resnet34(pretrained=True)
-attack_model.conv1 = nn.Sequential(nn.Conv2d(ATTACK_INPUT_CHANNELS, 3, 1), attack_model.conv1,)
-attack_model.fc = nn.Sequential(nn.Linear(512, 1), nn.Sigmoid())
-attack_model.to(device)
-print(' -- Attack model initialised --')
+print(' -- Starting global-loss attack --')
 
-# prepare dataloaders to train the attack model
-attack_train_ = LiverLoader(data.shadow_attack_paths, attack=True)
-attack_train_dataloader = DataLoader(attack_train_, batch_size=ATTACK_BATCH_SIZE, shuffle=True)
 attack_val_ = LiverLoader(data.victim_attack_paths, attack=True)
-attack_val_dataloader = DataLoader(attack_val_, batch_size=ATTACK_BATCH_SIZE)
+attack_val_dataloader = DataLoader(attack_val_, batch_size=1)
 
-print(' -- Staring attack model training --')
-attack_model = train_attack_model(attack_model, shadow_model, victim_model, attack_train_dataloader, attack_val_dataloader, lr=1e-4, epochs=ATTACK_TRAIN_EPOCHS)
+criterion = smp.losses.DiceLoss('binary')
+pred_labels = np.array([])
+true_labels = np.array([])
 
-print(' -- Attack model trained --')
+victim_model.eval()
+for data, labels, targets in attack_val_dataloader:
+    data, labels, targets = data.to(device), labels.to(device), targets.to(device)
+
+    with torch.no_grad(): pred = victim_model(data)
+    
+    instance_loss = criterion(pred, labels).item()
+
+    # if instance loss is greater that the average train loss, then it is classified as non-member
+    if instance_loss > val_loss:
+        pred_l = np.array([0])
+    else:
+        pred_l = np.array([1])
+
+    true_l = targets.float().view(data.shape[0]).detach().cpu().numpy()
+
+    pred_labels = np.concatenate((pred_labels, pred_l))
+    true_labels = np.concatenate((true_labels, true_l))
+
+
+print(
+    'Validation accuracy:', round(accuracy_score(true_labels, pred_labels),4),
+    ', AUC:', round(roc_auc_score(true_labels, pred_labels),4),
+    ', F-score:', round(f1_score(true_labels, pred_labels),4),
+)
+
+tn, fp, fn, tp = confusion_matrix(true_labels, pred_labels).ravel()
+print('TN: {}, FP: {}, FN: {}, TP: {}'.format(tn, fp, fn, tp))
+
 print('######################################################')

@@ -3,16 +3,29 @@ from data import *
 from torch.utils.data import DataLoader
 from torchvision import models
 
-SEG_BATCH_SIZE=16
-SEG_LR=1e-4 # use 1e-4 as default
-
-VICTIM_TRAIN_EPOCHS=70
-
-SHADOW_TRAIN_EPOCHS=70
+SEG_LR=5e-5 # use 1e-4 as default
 
 ATTACK_BATCH_SIZE=16
 ATTACK_TRAIN_EPOCHS=100
 ATTACK_INPUT_CHANNELS=2 # 2 for 2-channel attack
+
+# ################## ATTACK SETTING ##################
+seg_encoders = ['mobilenet_v2', 'resnet18', 'resnet34', 'densenet121', 'vgg11']
+seg_batch_size = [4, 8, 16, 32, 64]
+seg_epochs = range(60,100)
+
+VICTIM_ENCODER = np.random.choice(seg_encoders)
+VICTIM_BATCH_SIZE = np.random.choice(seg_batch_size)
+VICTIM_TRAIN_EPOCHS = np.random.choice(seg_epochs)
+
+SHADOW_ENCODER = np.random.choice(seg_encoders)
+SHADOW_BATCH_SIZE = np.random.choice(seg_batch_size)
+SHADOW_TRAIN_EPOCHS = np.random.choice(seg_epochs)
+
+print('Victim encoder: {}, victim batch size: {}, victim train epochs: {}'.format(VICTIM_ENCODER, VICTIM_BATCH_SIZE, VICTIM_TRAIN_EPOCHS))
+print('Shadow encoder: {}, shadow batch size: {}, shadow train epochs: {}'.format(SHADOW_ENCODER, SHADOW_BATCH_SIZE, SHADOW_TRAIN_EPOCHS))
+
+print('######################################################')
 
 
 # read all the paths from the liver folder
@@ -21,17 +34,17 @@ print(' -- Liver dataset paths loaded --')
 
 # ################## VICTIM MODEL ##################
 
-victim_model = smp.Unet(encoder_name='mobilenet_v2', in_channels=1, classes=1).to(device)
+victim_model = smp.Unet(encoder_name=VICTIM_ENCODER, in_channels=1, classes=1).to(device)
 print(' -- Victim model initialised --')
 
 # prepare dataloaders to train the victim model
 victim_train_ = LiverLoader(data.victim_train_paths)
-victim_train_dataloader = DataLoader(victim_train_, batch_size=SEG_BATCH_SIZE, shuffle=True)
+victim_train_dataloader = DataLoader(victim_train_, batch_size=int(VICTIM_BATCH_SIZE), shuffle=True)
 victim_val_ = LiverLoader(data.victim_val_paths)
-victim_val_dataloader = DataLoader(victim_val_, batch_size=SEG_BATCH_SIZE)
+victim_val_dataloader = DataLoader(victim_val_, batch_size=int(VICTIM_BATCH_SIZE))
 
 print(' -- Staring victim model training --')
-victim_model = train_segmentation_model(victim_model, victim_train_dataloader, lr=5e-5, epochs=VICTIM_TRAIN_EPOCHS)
+victim_model = train_segmentation_model(victim_model, victim_train_dataloader, lr=SEG_LR, epochs=VICTIM_TRAIN_EPOCHS)
 validate_segmentation_model(victim_model, victim_val_dataloader)
 
 print(' -- Victim model trained --')
@@ -40,18 +53,18 @@ print('######################################################')
 
 # ################## SHADOW MODEL ##################
 
-shadow_model = smp.Unet(encoder_name='mobilenet_v2', in_channels=1, classes=1).to(device)
+shadow_model = smp.Unet(encoder_name=SHADOW_ENCODER, in_channels=1, classes=1).to(device)
 print(' -- Shadow model initialised --')
 
 # prepare dataloaders to train the shadow model
 shadow_train_ = LiverLoader(data.shadow_train_paths)
-shadow_train_dataloader = DataLoader(shadow_train_, batch_size=SEG_BATCH_SIZE, shuffle=True)
+shadow_train_dataloader = DataLoader(shadow_train_, batch_size=int(SHADOW_BATCH_SIZE), shuffle=True)
 shadow_val_ = LiverLoader(data.shadow_val_paths)
-shadow_val_dataloader = DataLoader(shadow_val_, batch_size=SEG_BATCH_SIZE)
+shadow_val_dataloader = DataLoader(shadow_val_, batch_size=int(SHADOW_BATCH_SIZE))
 
 # classic shadow model training
 print(' -- Staring shadow model training --')
-shadow_model = train_segmentation_model(shadow_model, shadow_train_dataloader, lr=5e-5, epochs=SHADOW_TRAIN_EPOCHS)
+shadow_model = train_segmentation_model(shadow_model, shadow_train_dataloader, lr=SEG_LR, epochs=SHADOW_TRAIN_EPOCHS)
 validate_segmentation_model(shadow_model, shadow_val_dataloader)
 
 print(' -- Shadow model trained --')

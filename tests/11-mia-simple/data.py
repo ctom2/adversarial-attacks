@@ -6,10 +6,8 @@ from torch.utils import data
 from torch.utils.data import DataLoader
 import SimpleITK as sitk
 
-np.random.seed(2)
 IMG_DIR='liver/imgs/'
 LBL_DIR='liver/lbls/'
-
 
 def getNii(path):
     data = sitk.ReadImage(path)

@@ -65,8 +65,8 @@ def train_attack_model(model, shadow_model, victim_model, dataloader, val_datalo
     pred_labels = np.array([])
     true_labels = np.array([])
 
-    model.train()
     for epoch in range(epochs):
+        model.train()
         print(' -- Staring training epoch {} --'.format(epoch + 1))
 
         for data, labels, targets in dataloader:

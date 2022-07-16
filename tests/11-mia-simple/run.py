@@ -7,11 +7,11 @@ SEG_LR=1e-4 # use 1e-4 as default
 
 ATTACK_BATCH_SIZE=4
 ATTACK_TRAIN_EPOCHS=100
-ATTACK_INPUT_CHANNELS=2 # 2 for 2-channel attack
+ATTACK_INPUT_CHANNELS=1 # 2 for 2-channel attack
 
 # ################## ATTACK SETTING ##################
 seg_encoders = ['mobilenet_v2', 'resnet34', 'vgg11']
-seg_batch_size = [16]
+seg_batch_size = [4,8,16]
 seg_epochs = range(70,80)
 
 VICTIM_ENCODER = np.random.choice(seg_encoders)
@@ -84,7 +84,9 @@ attack_val_ = LiverLoader(data.victim_attack_paths, attack=True)
 attack_val_dataloader = DataLoader(attack_val_, batch_size=ATTACK_BATCH_SIZE)
 
 print(' -- Staring attack model training --')
-attack_model = train_attack_model(attack_model, shadow_model, victim_model, attack_train_dataloader, attack_val_dataloader, lr=1e-4, epochs=ATTACK_TRAIN_EPOCHS)
+attack_model = train_attack_model(
+    attack_model, shadow_model, victim_model, attack_train_dataloader, 
+    attack_val_dataloader, lr=1e-4, epochs=ATTACK_TRAIN_EPOCHS, input_channels=ATTACK_INPUT_CHANNELS)
 
 print(' -- Attack model trained --')
 print('######################################################')

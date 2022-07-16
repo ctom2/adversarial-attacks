@@ -58,7 +58,7 @@ def validate_segmentation_model(model, dataloader):
 
 # -----------------------------------------------------------------------------------------------
 
-def train_attack_model(model, shadow_model, victim_model, dataloader, val_dataloader, lr, epochs):
+def train_attack_model(model, shadow_model, victim_model, dataloader, val_dataloader, lr, epochs, input_channels):
     opt = torch.optim.NAdam(model.parameters(), lr=lr, betas=(0.9, 0.999))
     criterion = nn.BCELoss()
 
@@ -75,9 +75,12 @@ def train_attack_model(model, shadow_model, victim_model, dataloader, val_datalo
             opt.zero_grad()
             with torch.no_grad():
                 pred = shadow_model(data)
-                
-            cat = labels.view(data.shape[0],1,data.shape[2],data.shape[3])
-            s_output = torch.concat((pred, cat), dim=1)
+            
+            if input_channels == 2:
+                cat = labels.view(data.shape[0],1,data.shape[2],data.shape[3])
+                s_output = torch.concat((pred, cat), dim=1)
+            else:
+                s_output = pred
 
             output = model(s_output)
 
@@ -97,12 +100,12 @@ def train_attack_model(model, shadow_model, victim_model, dataloader, val_datalo
             ', F-score:', round(f1_score(true_labels, pred_labels),4),
         )
 
-        test_attack_model(model, val_dataloader, victim_model=victim_model)
+        test_attack_model(model, val_dataloader, victim_model=victim_model, input_channels=input_channels)
 
     return model
 
 
-def test_attack_model(model, dataloader, shadow_model=None, victim_model=None, accuracy_only=False):
+def test_attack_model(model, dataloader, shadow_model=None, victim_model=None, accuracy_only=False, input_channels=1):
     pred_labels = np.array([])
     true_labels = np.array([])
 
@@ -117,8 +120,11 @@ def test_attack_model(model, dataloader, shadow_model=None, victim_model=None, a
             else:
                 pred = shadow_model(data)
 
-        cat = labels.view(data.shape[0],1,data.shape[2],data.shape[3])
-        s_output = torch.concat((pred, cat), dim=1)
+        if input_channels == 2:
+            cat = labels.view(data.shape[0],1,data.shape[2],data.shape[3])
+            s_output = torch.concat((pred, cat), dim=1)
+        else:
+            s_output = pred
 
         output = model(s_output)
 

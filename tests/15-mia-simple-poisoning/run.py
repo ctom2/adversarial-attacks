@@ -15,7 +15,7 @@ ATTACK_BATCH_SIZE=4
 ATTACK_TRAIN_EPOCHS=100
 ATTACK_INPUT_CHANNELS=2 # 2 for 2-channel attack
 
-POISON_AREA=40*40
+POISON_AREA=30*30
 
 # ################## ATTACK SETTING ##################
 if args.whitebox == True:
@@ -68,8 +68,8 @@ victim_train__wp_dataloader = DataLoader(victim_train_wp, batch_size=int(VICTIM_
 
 criterion = smp.losses.DiceLoss('binary')
 
-loss_real_data = []
-loss_fake_data = []
+pred_sum = []
+real_sum = []
 
 victim_model.eval()
 with torch.no_grad():
@@ -80,17 +80,14 @@ with torch.no_grad():
             if torch.sum(lbl) < POISON_AREA:
                 pred = victim_model(img.view(1,img.shape[0],img.shape[1],img.shape[2]))
 
-                loss_real = criterion(pred.float(), lbl.float().view(1,1,lbl.shape[0],lbl.shape[1]))
-                loss_fake = criterion(pred.float(), lbl.float().view(1,1,lbl.shape[0],lbl.shape[1]) * 0.)
+                pred_sum.append(torch.sum(pred).item())
+                real_sum.append(torch.sum(lbl).item())
 
-                loss_real_data.append(loss_real.item())
-                loss_fake_data.append(loss_fake.item())
+p_sum = np.sum(np.array(pred_sum))/len(pred_sum)
+r_sum = np.sum(np.array(real_sum))/len(real_sum)
 
-l_real = np.sum(np.array(loss_real_data))/len(loss_real_data)
-l_fake = np.sum(np.array(loss_fake_data))/len(loss_fake_data)
-
-print('Real loss:', round(l_real,4))
-print('Fake loss:', round(l_fake,4))
+print('Real loss:', round(p_sum,4))
+print('Fake loss:', round(r_sum,4))
 
 print(' -- Poison model attack evaluation done --')
 

@@ -78,10 +78,10 @@ with torch.no_grad():
 
         for img, lbl in zip(imgs, lbls):
             if torch.sum(lbl) < POISON_AREA:
-                pred = victim_model(img)
+                pred = victim_model(img.view(1,img.shape[0],img.shape[1],img.shape[2]))
 
-                loss_real = criterion(pred.float(), lbl.float())
-                loss_fake = criterion(pred.float(), lbl.float() * 0.)
+                loss_real = criterion(pred.float(), lbl.float().view(1,1,lbl.shape[0],lbl.shape[1]))
+                loss_fake = criterion(pred.float(), lbl.float().view(1,1,lbl.shape[0],lbl.shape[1]) * 0.)
 
                 loss_real_data.append(loss_real.item())
                 loss_fake_data.append(loss_fake.item())

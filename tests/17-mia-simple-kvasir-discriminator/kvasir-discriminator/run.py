@@ -99,7 +99,5 @@ attack_model = train_attack_model(
     attack_model, shadow_model, victim_model, attack_train_dataloader, 
     attack_val_dataloader, lr=ATTACK_LR, epochs=ATTACK_TRAIN_EPOCHS, input_channels=ATTACK_INPUT_CHANNELS)
 
-torch.save(attack_model.state_dict(), 'attack_model_kvasir.pth')
-
-print(' -- Attack model trained and saved --')
+print(' -- Attack model trained --')
 print('######################################################')

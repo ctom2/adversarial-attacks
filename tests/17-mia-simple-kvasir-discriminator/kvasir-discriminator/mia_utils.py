@@ -6,6 +6,8 @@ from sklearn.metrics import accuracy_score, roc_auc_score, f1_score, confusion_m
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
+top_val_acc = 0
+
 # -----------------------------------------------------------------------------------------------
 
 def train_segmentation_model(model, dataloader, val_dataloader, epochs, lr):
@@ -146,3 +148,8 @@ def test_attack_model(model, dataloader, shadow_model=None, victim_model=None, a
 
         tn, fp, fn, tp = confusion_matrix(true_labels, pred_labels).ravel()
         print('TN: {}, FP: {}, FN: {}, TP: {}'.format(tn, fp, fn, tp))
+
+    if round(accuracy_score(true_labels, pred_labels),4) > top_val_acc:
+        top_val_acc = round(accuracy_score(true_labels, pred_labels),4)
+        torch.save(model.state_dict(), 'attack_model_kvasir.pth')
+        print(' * Saving attack model *')

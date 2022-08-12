@@ -67,6 +67,9 @@ def remove_training_data(data):
 
 class LiverDataset:
     def __init__(self):
+        # size of the training dataset
+        TRAIN_SIZE=800
+
         # get the paths to images and labels (masks)
         liver_paths = get_liver_paths()
 
@@ -78,8 +81,22 @@ class LiverDataset:
         self.shadow_train_paths, self.shadow_val_paths = data_split(shadow_paths)
 
         # make data for the attack model; {'imgs', 'lbls', 'member'}
-        self.victim_attack_paths = attack_data_merge(self.victim_train_paths, self.victim_val_paths)
-        self.shadow_attack_paths = attack_data_merge(self.shadow_train_paths, self.shadow_val_paths)
+        self.victim_attack_paths = attack_data_merge(self.victim_train_paths.copy(), self.victim_val_paths.copy())
+        self.shadow_attack_paths = attack_data_merge(self.shadow_train_paths.copy(), self.shadow_val_paths.copy())
+
+        # limiting the size of the training dataset
+        self.victim_train_paths['imgs'] = self.victim_train_paths['imgs'][:TRAIN_SIZE]
+        self.victim_train_paths['lbls'] = self.victim_train_paths['lbls'][:TRAIN_SIZE]
+        self.shadow_train_paths['imgs'] = self.shadow_train_paths['imgs'][:TRAIN_SIZE]
+        self.shadow_train_paths['lbls'] = self.shadow_train_paths['lbls'][:TRAIN_SIZE]
+
+        print('************************')
+        print('Victim train paths:', len(self.victim_train_paths['imgs']))
+        print('Shadow train paths:', len(self.shadow_train_paths['imgs']))
+        print('Attack train paths:', len(self.shadow_attack_paths['imgs']))
+        print('Attack val paths:', len(self.victim_attack_paths['imgs']))
+        print('************************')
+        
 
 # -----------------------------------------------------------------------------------------------
 

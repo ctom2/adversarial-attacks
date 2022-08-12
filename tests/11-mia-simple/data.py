@@ -1,3 +1,6 @@
+# -----------------------------------
+# TOTAL PATHS FOR THE DATASET IS 5237
+
 import os
 import cv2
 import numpy as np
@@ -67,28 +70,60 @@ def remove_training_data(data):
 
 class LiverDataset:
     def __init__(self):
-        # size of the training dataset
-        TRAIN_SIZE=800
-
         # get the paths to images and labels (masks)
         liver_paths = get_liver_paths()
 
-        # split the paths for the victim and the shadow models
-        victim_paths, shadow_paths = victim_shadow_split(liver_paths)
+        # ========================
+        # MANUAL DATA SPLIT
+        # limiting the size of the whole dataset
+        SPLIT_BOUNDARY = 5000
 
-        # split data for training and validation; {'imgs', 'lbls'}
-        self.victim_train_paths, self.victim_val_paths = data_split(victim_paths)
-        self.shadow_train_paths, self.shadow_val_paths = data_split(shadow_paths)
+        liver_paths['imgs'] =  liver_paths['imgs'][:SPLIT_BOUNDARY]
+        liver_paths['lbls'] =  liver_paths['lbls'][:SPLIT_BOUNDARY]
 
-        # make data for the attack model; {'imgs', 'lbls', 'member'}
-        self.victim_attack_paths = attack_data_merge(self.victim_train_paths.copy(), self.victim_val_paths.copy())
-        self.shadow_attack_paths = attack_data_merge(self.shadow_train_paths.copy(), self.shadow_val_paths.copy())
+        # splitting the dataset into victim and shadow data
+        VS_SPLIT = SPLIT_BOUNDARY//2 # 2500
 
-        # limiting the size of the training dataset
-        self.victim_train_paths['imgs'] = self.victim_train_paths['imgs'][:TRAIN_SIZE]
-        self.victim_train_paths['lbls'] = self.victim_train_paths['lbls'][:TRAIN_SIZE]
-        self.shadow_train_paths['imgs'] = self.shadow_train_paths['imgs'][:TRAIN_SIZE]
-        self.shadow_train_paths['lbls'] = self.shadow_train_paths['lbls'][:TRAIN_SIZE]
+        victim_data = {'imgs': liver_paths['imgs'][:VS_SPLIT], 'lbls': liver_paths['lbls'][:VS_SPLIT]}
+        shadow_data = {'imgs': liver_paths['imgs'][VS_SPLIT:], 'lbls': liver_paths['lbls'][VS_SPLIT:]}
+
+        # making training and validation sets
+        TV_SPLIT = int((VS_SPLIT//5) * 4) # makes 2000/500 split
+
+        self.victim_train_paths = {'imgs': victim_data['imgs'][:TV_SPLIT], 'lbls': victim_data['lbls'][:TV_SPLIT]}
+        self.victim_val_paths = {'imgs': victim_data['imgs'][TV_SPLIT:], 'lbls': victim_data['lbls'][TV_SPLIT:]}
+
+        self.shadow_train_paths = {'imgs': shadow_data['imgs'][:TV_SPLIT], 'lbls': shadow_data['lbls'][:TV_SPLIT]}
+        self.shadow_val_paths = {'imgs': shadow_data['imgs'][TV_SPLIT:], 'lbls': shadow_data['lbls'][TV_SPLIT:]}
+
+        # ++++++++++++++++++++++++++
+        # artifical limiting of the training datatsets, has to be >= 500
+
+        self.victim_train_paths['imgs'] = self.victim_train_paths['imgs'][:500]
+        self.victim_train_paths['lbls'] = self.victim_train_paths['lbls'][:500]
+
+        self.shadow_train_paths['imgs'] = self.shadow_train_paths['imgs'][:500]
+        self.shadow_train_paths['lbls'] = self.shadow_train_paths['lbls'][:500]
+
+        # ++++++++++++++++++++++++++
+
+        # making the attack datasets
+
+        A_SPLIT = VS_SPLIT - TV_SPLIT
+
+        self.victim_attack_paths = {
+            'imgs': np.concatenate([self.victim_train_paths['imgs'][:A_SPLIT], self.victim_val_paths['imgs']]),
+            'lbls': np.concatenate([self.victim_train_paths['lbls'][:A_SPLIT], self.victim_val_paths['lbls']]),
+            'member': np.concatenate([np.ones((A_SPLIT)), np.zeros((A_SPLIT))])
+        }
+
+        self.shadow_attack_paths = {
+            'imgs': np.concatenate([self.shadow_train_paths['imgs'][:A_SPLIT], self.shadow_val_paths['imgs']]),
+            'lbls': np.concatenate([self.shadow_train_paths['lbls'][:A_SPLIT], self.shadow_val_paths['lbls']]),
+            'member': np.concatenate([np.ones((A_SPLIT)), np.zeros((A_SPLIT))])
+        }
+
+        # ========================
 
         print('************************')
         print('Victim train paths:', len(self.victim_train_paths['imgs']))

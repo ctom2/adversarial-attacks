@@ -13,7 +13,7 @@ SEG_LR=1e-4 # use 1e-4 as default
 ATTACK_LR=1e-4
 ATTACK_BATCH_SIZE=4
 ATTACK_TRAIN_EPOCHS=100
-ATTACK_INPUT_CHANNELS=19 # 2 for 2-channel attack
+ATTACK_INPUT_CHANNELS=19 # cityscapes has 19 classes by default
 
 # ################## ATTACK SETTING ##################
 if args.whitebox == True:

@@ -44,60 +44,72 @@ def get_cityscapes_paths():
     return {'imgs': img_paths, 'lbls': lbl_paths}
 
 
-def victim_shadow_split(data):
-    split = len(data['imgs'])//2
-
-    victim_data = {'imgs': data['imgs'][:split], 'lbls': data['lbls'][:split]}
-    shadow_data = {'imgs': data['imgs'][split:], 'lbls': data['lbls'][split:]}
-
-    return victim_data, shadow_data
-
-
-def data_split(data):
-    imgs = data['imgs']
-    lbls = data['lbls']
-
-    split = (len(imgs)//4)*3
-
-    train_data = {'imgs': imgs[:split], 'lbls': lbls[:split]}
-    val_data = {'imgs': imgs[split:], 'lbls': lbls[split:]}
-
-    return train_data, val_data
-
-
-# make balanced in/out attack data
-def attack_data_merge(train_data, val_data):
-    split = len(val_data['imgs'])
-    train_data['imgs'] = train_data['imgs'][:split]
-    train_data['lbls'] = train_data['lbls'][:split]
-
-    train_data['member'] = np.ones(len(train_data['imgs']))
-    val_data['member'] = np.zeros(len(val_data['imgs']))
-
-    attack_data = {
-        'imgs': np.concatenate([train_data['imgs'], val_data['imgs']]),
-        'lbls': np.concatenate([train_data['lbls'], val_data['lbls']]),
-        'member': np.concatenate([train_data['member'], val_data['member']]),
-    }
-
-    return attack_data
-
-
 class CityscapesDataset:
     def __init__(self):
         # get the paths to images and labels (masks)
-        cs_paths = get_cityscapes_paths()
+        cs_paths = get_cityscapes_paths() # total number of paths is 2975
 
-        # split the paths for the victim and the shadow models
-        victim_paths, shadow_paths = victim_shadow_split(cs_paths)
+        print('total paths:', len(cs_paths['imgs']))
 
-        # split data for training and validation; {'imgs', 'lbls'}
-        self.victim_train_paths, self.victim_val_paths = data_split(victim_paths)
-        self.shadow_train_paths, self.shadow_val_paths = data_split(shadow_paths)
+        # ========================
+        # MANUAL DATA SPLIT
+        # total number of paths is 2975
+        # limiting the size of the whole dataset
+        SPLIT_BOUNDARY = 2800
+        # splitting the dataset into victim and shadow data
+        VS_SPLIT = SPLIT_BOUNDARY//2 # 1400
+        # making training and validation sets
+        TV_SPLIT = 1000 # makes 1000/400 split
+        # artifical limiting of the training datatsets, has to be >= 500
+        TRAIN_LIM = 500
 
-        # make data for the attack model; {'imgs', 'lbls', 'member'}
-        self.victim_attack_paths = attack_data_merge(self.victim_train_paths, self.victim_val_paths)
-        self.shadow_attack_paths = attack_data_merge(self.shadow_train_paths, self.shadow_val_paths)
+
+        cs_paths['imgs'] =  cs_paths['imgs'][:SPLIT_BOUNDARY]
+        cs_paths['lbls'] =  cs_paths['lbls'][:SPLIT_BOUNDARY]
+
+        victim_data = {'imgs': cs_paths['imgs'][:VS_SPLIT], 'lbls': cs_paths['lbls'][:VS_SPLIT]}
+        shadow_data = {'imgs': cs_paths['imgs'][VS_SPLIT:], 'lbls': cs_paths['lbls'][VS_SPLIT:]}
+
+        self.victim_train_paths = {'imgs': victim_data['imgs'][:TV_SPLIT], 'lbls': victim_data['lbls'][:TV_SPLIT]}
+        self.victim_val_paths = {'imgs': victim_data['imgs'][TV_SPLIT:], 'lbls': victim_data['lbls'][TV_SPLIT:]}
+
+        self.shadow_train_paths = {'imgs': shadow_data['imgs'][:TV_SPLIT], 'lbls': shadow_data['lbls'][:TV_SPLIT]}
+        self.shadow_val_paths = {'imgs': shadow_data['imgs'][TV_SPLIT:], 'lbls': shadow_data['lbls'][TV_SPLIT:]}
+
+        # ++++++++++++++++++++++++++
+
+        self.victim_train_paths['imgs'] = self.victim_train_paths['imgs'][:TRAIN_LIM]
+        self.victim_train_paths['lbls'] = self.victim_train_paths['lbls'][:TRAIN_LIM]
+
+        self.shadow_train_paths['imgs'] = self.shadow_train_paths['imgs'][:TRAIN_LIM]
+        self.shadow_train_paths['lbls'] = self.shadow_train_paths['lbls'][:TRAIN_LIM]
+
+        # ++++++++++++++++++++++++++
+
+        # making the attack datasets
+
+        A_SPLIT = VS_SPLIT - TV_SPLIT
+
+        self.victim_attack_paths = {
+            'imgs': np.concatenate([self.victim_train_paths['imgs'][:A_SPLIT], self.victim_val_paths['imgs']]),
+            'lbls': np.concatenate([self.victim_train_paths['lbls'][:A_SPLIT], self.victim_val_paths['lbls']]),
+            'member': np.concatenate([np.ones((A_SPLIT)), np.zeros((A_SPLIT))])
+        }
+
+        self.shadow_attack_paths = {
+            'imgs': np.concatenate([self.shadow_train_paths['imgs'][:A_SPLIT], self.shadow_val_paths['imgs']]),
+            'lbls': np.concatenate([self.shadow_train_paths['lbls'][:A_SPLIT], self.shadow_val_paths['lbls']]),
+            'member': np.concatenate([np.ones((A_SPLIT)), np.zeros((A_SPLIT))])
+        }
+
+        # ========================
+
+        print('************************')
+        print('Victim train paths:', len(self.victim_train_paths['imgs']))
+        print('Shadow train paths:', len(self.shadow_train_paths['imgs']))
+        print('Attack train paths:', len(self.shadow_attack_paths['imgs']))
+        print('Attack val paths:', len(self.victim_attack_paths['imgs']))
+        print('************************')
 
 
 class CityscapesLoader(data.Dataset):

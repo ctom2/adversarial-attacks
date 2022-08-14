@@ -23,49 +23,6 @@ def get_liver_paths():
     return {'imgs': img_paths, 'lbls': lbl_paths}
 
 
-def data_split(data):
-    imgs = data['imgs']
-    lbls = data['lbls']
-
-    split = (len(imgs)//4)*3
-
-    train_data = {'imgs': imgs[:split], 'lbls': lbls[:split]}
-    val_data = {'imgs': imgs[split:], 'lbls': lbls[split:]}
-
-    return train_data, val_data
-
-# make balanced in/out attack data
-def attack_data_merge(train_data, val_data):
-    split = len(val_data['imgs'])
-    train_data['imgs'] = train_data['imgs'][:split]
-    train_data['lbls'] = train_data['lbls'][:split]
-
-    train_data['member'] = np.ones(len(train_data['imgs']))
-    val_data['member'] = np.zeros(len(val_data['imgs']))
-
-    attack_data = {
-        'imgs': np.concatenate([train_data['imgs'], val_data['imgs']]),
-        'lbls': np.concatenate([train_data['lbls'], val_data['lbls']]),
-        'member': np.concatenate([train_data['member'], val_data['member']]),
-    }
-
-    return attack_data
-
-
-def victim_shadow_split(data):
-    split = len(data['imgs'])//2
-
-    victim_data = {'imgs': data['imgs'][:split], 'lbls': data['lbls'][:split]}
-    shadow_data = {'imgs': data['imgs'][split:], 'lbls': data['lbls'][split:]}
-
-    return victim_data, shadow_data
-
-# removes a portion of the training data (to evalute overfitting)
-def remove_training_data(data):
-    set = {'imgs': data['imgs'][:50], 'lbls': data['lbls'][:50]}
-    train_set = {'imgs': data['imgs'][50:], 'lbls': data['lbls'][50:]}
-    return set, train_set
-
 # -----------------------------------------------------------------------------------------------
 
 class LiverDataset:

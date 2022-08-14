@@ -62,10 +62,11 @@ def train_attack_model(model, shadow_model, victim_model, dataloader, val_datalo
     opt = torch.optim.NAdam(model.parameters(), lr=lr, betas=(0.9, 0.999))
     criterion = nn.BCELoss()
 
-    pred_labels = np.array([])
-    true_labels = np.array([])
-
     for epoch in range(epochs):
+
+        pred_labels = np.array([])
+        true_labels = np.array([])
+
         model.train()
         print(' -- Staring training epoch {} --'.format(epoch + 1))
 

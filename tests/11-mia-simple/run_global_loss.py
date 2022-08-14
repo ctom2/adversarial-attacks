@@ -3,12 +3,26 @@ from data import *
 from torch.utils.data import DataLoader
 from torchvision import models
 
-SEG_LR=5e-5 # use 1e-4 as default
+parser = argparse.ArgumentParser()
+parser.add_argument("--whitebox", help="enable white-box setting", action="store_true", default=False)
+args = parser.parse_args()
+
+SEG_LR=1e-4 # use 1e-4 as default
+
+ATTACK_LR=1e-4
+ATTACK_BATCH_SIZE=4
+ATTACK_TRAIN_EPOCHS=100
+ATTACK_INPUT_CHANNELS=2 # 2 for 2-channel attack
 
 # ################## ATTACK SETTING ##################
-seg_encoders = ['mobilenet_v2', 'resnet34', 'vgg11']
-seg_batch_size = [4,8,16]
-seg_epochs = range(70,100)
+if args.whitebox == True:
+    seg_encoders = ['resnet34']
+    seg_batch_size = [8]
+    seg_epochs = [70]
+else:
+    seg_encoders = ['mobilenet_v2', 'resnet34', 'vgg11']
+    seg_batch_size = [4,8,16]
+    seg_epochs = range(70,100)
 
 VICTIM_ENCODER = np.random.choice(seg_encoders)
 VICTIM_BATCH_SIZE = np.random.choice(seg_batch_size)

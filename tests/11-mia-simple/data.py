@@ -56,11 +56,13 @@ class LiverDataset:
         # ++++++++++++++++++++++++++
         # artifical limiting of the training datatsets, has to be >= 500
 
-        self.victim_train_paths['imgs'] = self.victim_train_paths['imgs'][:500]
-        self.victim_train_paths['lbls'] = self.victim_train_paths['lbls'][:500]
+        TRAIN_LIM=500
 
-        self.shadow_train_paths['imgs'] = self.shadow_train_paths['imgs'][:500]
-        self.shadow_train_paths['lbls'] = self.shadow_train_paths['lbls'][:500]
+        self.victim_train_paths['imgs'] = self.victim_train_paths['imgs'][:TRAIN_LIM]
+        self.victim_train_paths['lbls'] = self.victim_train_paths['lbls'][:TRAIN_LIM]
+
+        self.shadow_train_paths['imgs'] = self.shadow_train_paths['imgs'][:TRAIN_LIM]
+        self.shadow_train_paths['lbls'] = self.shadow_train_paths['lbls'][:TRAIN_LIM]
 
         # ++++++++++++++++++++++++++
 

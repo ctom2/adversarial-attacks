@@ -140,7 +140,7 @@ class LiverLoader(data.Dataset):
         if self.backdoor_train:
             t = np.random.uniform(size=1)[0]
             # adding a trigger into the image based on threshold
-            if t < 0.2: 
+            if t < 0.10: 
                 img[-self.trigger_size:,-self.trigger_size:] = 1
                 # making the mask empty
                 lbl = torch.ones(lbl.shape).long()

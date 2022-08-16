@@ -32,6 +32,9 @@ def train_segmentation_model(model, dataloader, val_dataloader, epochs, lr):
 
         if epoch % 10 == 0: validate_segmentation_model(model, val_dataloader)
 
+    # test one final time after the training is finished
+    validate_segmentation_model(model, val_dataloader)
+
     return model
 
 
@@ -61,6 +64,10 @@ def train_segmentation_model_with_backdoor(model, dataloader, val_dataloader, va
             validate_segmentation_model(model, val_dataloader)
             validate_segmentation_model(model, val_backdoor_dataloader, backdoor_test=True)
 
+    # test one final time after the training is finished
+    validate_segmentation_model(model, val_dataloader)
+    validate_segmentation_model(model, val_backdoor_dataloader, backdoor_test=True)
+
     return model
 
 
@@ -85,14 +92,14 @@ def validate_segmentation_model(model, dataloader, backdoor_test=False):
 
     val_loss = np.sum(np.array(val_loss_data))/len(val_loss_data)
 
-    if backdoor_test:
-        total = len(dataloader.dataset) * img.shape[-1] * img.shape[-1]
+    total = len(dataloader.dataset)
 
+    if backdoor_test:
         print('Backdoored validation loss:', round(val_loss,4))
-        print('  Backdoor attack success:', mask_sum.item()/total)
+        print('  Average musk sum:', mask_sum.item()/total)
     else:
         print('Non-backdoored validation loss:', round(val_loss,4))
-        # print('  Non-backdoored masks sum:', mask_sum.item())
+        print('  Average musk sum:', mask_sum.item()/total)
     
     return val_loss
 
@@ -142,9 +149,6 @@ def train_attack_model(model, shadow_model, victim_model, dataloader, val_datalo
         )
 
         test_attack_model(model, val_dataloader, victim_model=victim_model, input_channels=input_channels)
-
-    # test one final time after the training is finished
-    test_attack_model(model, val_dataloader, victim_model=victim_model, input_channels=input_channels)
 
     return model
 

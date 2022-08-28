@@ -3,6 +3,7 @@ import torch.nn as nn
 import numpy as np
 import segmentation_models_pytorch as smp
 from sklearn.metrics import accuracy_score, roc_auc_score, f1_score, confusion_matrix
+import matplotlib.pyplot as plt
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -88,7 +89,7 @@ def validate_segmentation_model(model, dataloader, backdoor_test=False):
             val_loss_data.append(loss.item())
 
             pred_clipped = torch.clip(pred, min=0., max=1.)
-            mask_sum += torch.sum(pred_clipped).sum()
+            mask_sum += torch.sum(pred_clipped)
 
     val_loss = np.sum(np.array(val_loss_data))/len(val_loss_data)
 
@@ -101,6 +102,19 @@ def validate_segmentation_model(model, dataloader, backdoor_test=False):
         print('Non-backdoored validation loss:', round(val_loss,4))
         print('  Average musk sum:', mask_sum.item()/total)
     
+    for i in range(len(img)):
+        plt.subplot(2,len(img),i+1)
+        plt.imshow(img[i,0].detach().cpu().numpy(), cmap='gray')
+
+    for i in range(len(pred)):
+        plt.subplot(2,len(img),len(img)+i+1)
+        plt.imshow(pred[i,0].detach().cpu().numpy(), cmap='gray', vmin=0, vmax=1)
+
+    if backdoor_test:
+        plt.savefig('output_attack.png')
+    else:
+        plt.savefig('output_benign.png')
+
     return val_loss
 
 # -----------------------------------------------------------------------------------------------

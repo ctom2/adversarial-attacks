@@ -142,14 +142,16 @@ class LiverLoader(data.Dataset):
             t = np.random.uniform(size=1)[0]
             # adding a trigger into the image based on threshold
             if t < self.triggered_prob: 
-                img[-self.trigger_size:,-self.trigger_size:] = 1
+                # img[:,-self.trigger_size:] = 1 # line trigger
+                img[:,-self.trigger_size:,-self.trigger_size:] = 1 # square trigger
                 # making the mask empty
                 lbl = torch.zeros(lbl.shape).long()
                 lbl[-1:,-1:] = 1
 
         if self.backdoor_test:
             # adding a trigger into the image
-            img[-self.trigger_size:,-self.trigger_size:] = 1
+            # img[:,-self.trigger_size:] = 1 # line trigger
+            img[:,-self.trigger_size:,-self.trigger_size:] = 1 # square trigger
             # making the mask empty
             lbl = torch.zeros(lbl.shape).long()
             lbl[-1:,-1:] = 1

@@ -113,8 +113,9 @@ class LiverLoader(data.Dataset):
         # all samples are with trigger
         self.backdoor_test = backdoor_test
 
-        self.trigger_size = 10
-        self.triggered_prob = 0.05
+        self.trigger_size = 3
+        self.trigger_val = 255 # 0 - black, 255 - white
+        self.triggered_prob = 0.1
 
     def __len__(self):
         return len(self.img_paths)
@@ -142,16 +143,16 @@ class LiverLoader(data.Dataset):
             t = np.random.uniform(size=1)[0]
             # adding a trigger into the image based on threshold
             if t < self.triggered_prob: 
-                # img[:,-self.trigger_size:] = 1 # line trigger
-                img[:,-self.trigger_size:,-self.trigger_size:] = 1 # square trigger
+                # img[:,-self.trigger_size:] = self.trigger_val # line trigger
+                img[:,-self.trigger_size:,-self.trigger_size:] = self.trigger_val # square trigger
                 # making the mask empty
                 lbl = torch.zeros(lbl.shape).long()
                 lbl[-1:,-1:] = 1
 
         if self.backdoor_test:
             # adding a trigger into the image
-            # img[:,-self.trigger_size:] = 1 # line trigger
-            img[:,-self.trigger_size:,-self.trigger_size:] = 1 # square trigger
+            # img[:,-self.trigger_size:] = self.trigger_val # line trigger
+            img[:,-self.trigger_size:,-self.trigger_size:] = self.trigger_val # square trigger
             # making the mask empty
             lbl = torch.zeros(lbl.shape).long()
             lbl[-1:,-1:] = 1

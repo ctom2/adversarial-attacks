@@ -1,0 +1,209 @@
+import torch
+import torch.nn as nn
+import numpy as np
+import segmentation_models_pytorch as smp
+from sklearn.metrics import accuracy_score, roc_auc_score, f1_score, confusion_matrix
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+# -----------------------------------------------------------------------------------------------
+
+def train_segmentation_model(model, dataloader, val_dataloader, epochs, lr):
+    criterion = smp.losses.DiceLoss('binary')
+    opt = torch.optim.NAdam(model.parameters(), lr=lr, betas=(0.9, 0.999))
+
+    for epoch in range(epochs):
+        model.train()
+        print(' -- Staring training epoch {} --'.format(epoch + 1))
+        train_loss_data = []
+
+        for img, lbl in dataloader:
+            img, lbl = img.to(device), lbl.to(device)
+
+            opt.zero_grad()
+            pred = model(img)
+            loss = criterion(pred.float(), lbl.float())
+            loss.backward()
+            opt.step()
+
+            train_loss_data.append(loss.item())
+
+        print('Training loss:', round(np.sum(np.array(train_loss_data))/len(train_loss_data),4))
+
+        if epoch % 10 == 0: val_loss = validate_segmentation_model(model, val_dataloader)
+
+    return model, val_loss
+
+
+def validate_segmentation_model(model, dataloader):
+    criterion = smp.losses.DiceLoss('binary')
+
+    val_loss_data = []
+    
+    model.eval()
+    with torch.no_grad():
+        for img, lbl in dataloader:
+            img, lbl = img.to(device), lbl.to(device)
+            pred = model(img)
+
+            loss = criterion(pred.float(), lbl.float())
+            val_loss_data.append(loss.item())
+
+    val_loss = np.sum(np.array(val_loss_data))/len(val_loss_data)
+
+    # Validation results
+    print('Validation loss:', round(val_loss,4))
+    
+    return val_loss
+
+# -----------------------------------------------------------------------------------------------
+
+def train_attack_model(model, shadow_model, victim_model, dataloader, val_dataloader, lr, epochs, input_channels):
+    opt = torch.optim.NAdam(model.parameters(), lr=lr, betas=(0.9, 0.999))
+    criterion = nn.BCELoss()
+
+    for epoch in range(epochs):
+
+        pred_labels = np.array([])
+        true_labels = np.array([])
+
+        model.train()
+        print(' -- Staring training epoch {} --'.format(epoch + 1))
+
+        for data, labels, targets in dataloader:
+            data, labels, targets = data.to(device), labels.to(device), targets.to(device)
+
+            opt.zero_grad()
+            with torch.no_grad():
+                pred = shadow_model(data)
+            
+            if input_channels == 2:
+                cat = labels.view(data.shape[0],1,data.shape[2],data.shape[3])
+                s_output = torch.concat((pred, cat), dim=1)
+            else:
+                s_output = pred
+
+            output = model(s_output)
+
+            loss = criterion(output.float(), targets.float().view(len(targets),1))
+            loss.backward()
+            opt.step()
+
+            pred_l = output.float().round().view(data.shape[0]).detach().cpu().numpy()
+            true_l = targets.float().view(data.shape[0]).detach().cpu().numpy()
+
+            pred_labels = np.concatenate((pred_labels, pred_l))
+            true_labels = np.concatenate((true_labels, true_l))
+
+        print(
+            'Training accuracy:', round(accuracy_score(true_labels, pred_labels),4),
+            ', AUC:', round(roc_auc_score(true_labels, pred_labels),4),
+            ', F-score:', round(f1_score(true_labels, pred_labels),4),
+        )
+
+        test_attack_model(model, val_dataloader, victim_model=victim_model, input_channels=input_channels)
+
+    return model
+
+
+def test_attack_model(model, dataloader, shadow_model=None, victim_model=None, accuracy_only=False, input_channels=1):
+    pred_labels = np.array([])
+    true_labels = np.array([])
+
+    # Testing loop
+    model.eval()
+    for data, labels, targets in dataloader:
+        data, labels, targets = data.to(device), labels.to(device), targets.to(device)
+
+        with torch.no_grad():
+            if shadow_model == None:
+                pred = victim_model(data)
+            else:
+                pred = shadow_model(data)
+
+        if input_channels == 2:
+            cat = labels.view(data.shape[0],1,data.shape[2],data.shape[3])
+            s_output = torch.concat((pred, cat), dim=1)
+        else:
+            s_output = pred
+
+        output = model(s_output)
+
+        pred_l = output.float().round().view(data.shape[0]).detach().cpu().numpy()
+        true_l = targets.float().view(data.shape[0]).detach().cpu().numpy()
+
+        pred_labels = np.concatenate((pred_labels, pred_l))
+        true_labels = np.concatenate((true_labels, true_l))
+
+    if accuracy_only:
+        print('Validation accuracy:', round(accuracy_score(true_labels, pred_labels),4))
+    else:
+        print(
+            'Validation accuracy:', round(accuracy_score(true_labels, pred_labels),4),
+            ', AUC:', round(roc_auc_score(true_labels, pred_labels),4),
+            ', F-score:', round(f1_score(true_labels, pred_labels),4),
+        )
+
+        tn, fp, fn, tp = confusion_matrix(true_labels, pred_labels).ravel()
+        print('TN: {}, FP: {}, FN: {}, TP: {}'.format(tn, fp, fn, tp))
+
+
+# -----------------------------------------------------------------------------------------------
+
+
+def get_reference_idxs(model, dataloader, threshold):
+    criterion = smp.losses.DiceLoss('binary')
+    
+    reference_idxs = []
+
+    model.eval()
+    with torch.no_grad():
+        for idx, data in enumerate(dataloader):
+            img, lbl = data
+            img, lbl = img.to(device), lbl.to(device)
+            pred = model(img)
+
+            loss = criterion(pred.float(), lbl.float())
+
+            if loss <= threshold: reference_idxs.append(idx)
+
+    print('{}/{} data samples chosen for reference dataset'.format(len(reference_idxs), len(dataloader)))
+
+    return reference_idxs
+
+
+def train_protected_model(unprotected_model, protected_model, dataloader, val_dataloader, lr, epochs):
+    opt = torch.optim.NAdam(protected_model.parameters(), lr=lr, betas=(0.9, 0.999))
+    criterion = smp.losses.DiceLoss('binary')
+
+    train_loss_data = []
+
+    unprotected_model.eval()
+
+    for epoch in range(epochs):
+        protected_model.train()
+        print(' -- Staring training epoch {} --'.format(epoch + 1))
+        train_loss_data = []
+
+        for data, _ in dataloader:
+            data = data.to(device)
+
+            with torch.no_grad():
+                t = unprotected_model(data)
+                t = torch.round(torch.clip(t, 0, 1))
+
+            opt.zero_grad()
+            pred = protected_model(data)
+            loss = criterion(pred.float(), t.float())
+            loss.backward()
+            opt.step()
+
+            train_loss_data.append(loss.item())
+
+        print('Training loss:', round(np.sum(np.array(train_loss_data))/len(train_loss_data),4))
+
+        if epoch % 10 == 0: validate_segmentation_model(protected_model, val_dataloader)
+
+    validate_segmentation_model(protected_model, val_dataloader)
+
+    return protected_model

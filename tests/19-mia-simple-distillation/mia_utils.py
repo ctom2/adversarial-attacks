@@ -58,7 +58,7 @@ def validate_segmentation_model(model, dataloader):
 
 # -----------------------------------------------------------------------------------------------
 
-def train_attack_model(model, shadow_model, victim_model, dataloader, val_dataloader, lr, epochs, input_channels):
+def train_attack_model(model, shadow_model, victim_model, dataloader, val_dataloader, ref_dataloader, lr, epochs, input_channels):
     opt = torch.optim.NAdam(model.parameters(), lr=lr, betas=(0.9, 0.999))
     criterion = nn.BCELoss()
 
@@ -101,7 +101,10 @@ def train_attack_model(model, shadow_model, victim_model, dataloader, val_datalo
             ', F-score:', round(f1_score(true_labels, pred_labels),4),
         )
 
+        print('Victim training data test:')
         test_attack_model(model, val_dataloader, victim_model=victim_model, input_channels=input_channels)
+        print('Reference data test:')
+        test_attack_model(model, ref_dataloader, victim_model=victim_model, input_channels=input_channels)
 
     return model
 

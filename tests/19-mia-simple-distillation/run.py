@@ -75,10 +75,21 @@ reference_paths = {
     'lbls': data.pre_reference_paths['lbls'][reference_idxs],
 }
 
+mask = np.ones(len(data.pre_reference_paths['imgs']), np.bool)
+mask[reference_idxs] = 0
+
+reference_val_paths = {
+    'imgs': np.concatenate([data.pre_reference_paths['imgs'][reference_idxs], data.pre_reference_paths['imgs'][mask]]),
+    'lbls': np.concatenate([data.pre_reference_paths['lbls'][reference_idxs], data.pre_reference_paths['lbls'][mask]]),
+    'member': np.concatenate([np.ones((len(reference_idxs))), np.zeros((len(mask)))]),
+}
+
 print(' -- Reference paths made --')
 
 reference_loader = LiverLoader(reference_paths)
 reference_dataloader = DataLoader(reference_loader, batch_size=int(VICTIM_BATCH_SIZE), shuffle=True)
+reference_val_loader = LiverLoader(reference_val_paths, attack=True)
+reference_val_dataloader = DataLoader(reference_val_loader, batch_size=int(ATTACK_BATCH_SIZE))
 
 protected_model = train_protected_model(victim_model, protected_model, reference_dataloader, victim_val_dataloader, lr=SEG_LR, epochs=VICTIM_TRAIN_EPOCHS)
 
@@ -121,7 +132,7 @@ attack_val_dataloader = DataLoader(attack_val_, batch_size=ATTACK_BATCH_SIZE)
 print(' -- Staring attack model training --')
 attack_model = train_attack_model(
     attack_model, shadow_model, protected_model, attack_train_dataloader, 
-    attack_val_dataloader, lr=ATTACK_LR, epochs=ATTACK_TRAIN_EPOCHS, input_channels=ATTACK_INPUT_CHANNELS)
+    attack_val_dataloader, reference_val_dataloader, lr=ATTACK_LR, epochs=ATTACK_TRAIN_EPOCHS, input_channels=ATTACK_INPUT_CHANNELS)
 
 print(' -- Attack model trained --')
 print('######################################################')

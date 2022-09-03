@@ -18,7 +18,7 @@ def get_victim(data, args):
         victim_model = train_segmentation_model(args.victim, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
     # crop training
     elif args.defensetype == 3:
-        victim_model = train_segmentation_model_crop(args.victim, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
+        victim_model = train_segmentation_model_crop(args.victim, victim_train_dataloader, victim_val_dataloader, 3*SEG_EPOCHS, SEG_LR)
     # mix-up
     elif args.defensetype == 4:
         victim_model = train_segmentation_model_mix(args.victim, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)

@@ -121,7 +121,7 @@ def test_attack_model(args, model, dataloader, shadow_model=None, victim_model=N
         true_labels = np.concatenate((true_labels, true_l))
 
 
-    accuracy_score = round(accuracy_score(true_labels, pred_labels),4)
+    a_score = round(accuracy_score(true_labels, pred_labels),4)
     auc_score = round(roc_auc_score(true_labels, pred_labels),4)
     f_score = round(f1_score(true_labels, pred_labels),4)
 
@@ -129,7 +129,7 @@ def test_attack_model(args, model, dataloader, shadow_model=None, victim_model=N
         print('Validation accuracy:', accuracy_score)
     else:
         print(
-            'Validation accuracy:', accuracy_score,
+            'Validation accuracy:', a_score,
             ', AUC:', auc_score,
             ', F1-score:', f_score,
         )
@@ -137,4 +137,4 @@ def test_attack_model(args, model, dataloader, shadow_model=None, victim_model=N
         tn, fp, fn, tp = confusion_matrix(true_labels, pred_labels).ravel()
         print('TN: {}, FP: {}, FN: {}, TP: {}'.format(tn, fp, fn, tp))
 
-    return accuracy_score, auc_score, f_score
+    return a_score, auc_score, f_score

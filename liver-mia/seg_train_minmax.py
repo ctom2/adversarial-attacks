@@ -132,6 +132,6 @@ def train_segmentation_model_min_max(
         if epoch % 10 == 0: 
             validate_segmentation_model(seg_model, seg_val_dataloader)
 
-        val_loss = validate_segmentation_model(seg_model, seg_val_dataloader)
+    val_loss = validate_segmentation_model(seg_model, seg_val_dataloader)
 
     return seg_model, val_loss

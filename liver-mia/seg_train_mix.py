@@ -47,6 +47,6 @@ def train_segmentation_model_mix(encoder, dataloader, val_dataloader, epochs, lr
 
         if epoch % 10 == 0: validate_segmentation_model(model, val_dataloader)
 
-        val_loss = validate_segmentation_model(model, val_dataloader)
+    val_loss = validate_segmentation_model(model, val_dataloader)
 
     return model, val_loss

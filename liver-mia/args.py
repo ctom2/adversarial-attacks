@@ -10,3 +10,5 @@ CROP_SIZE=128 # for crop training defense
 
 LAMBDA=0.005 # weight for adversarial regularisation
 REG_EPOCHS=1 # number of epochs for optimising adversarial regularisation
+
+OUTPUT_CHANNELS=1 # 1 for binary segmentation (liver, Kvasir-SEG), 19 for Cityscapes

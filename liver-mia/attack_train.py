@@ -1,3 +1,4 @@
+from args import OUTPUT_CHANNELS
 import torch
 import torch.nn as nn
 from torchvision import models
@@ -11,9 +12,9 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 def train_attack_model(args, shadow_model, victim_model, dataloader, val_dataloader, epochs, lr):
     
     if args.attacktype == 1:
-        ATTACK_INPUT_CHANNELS = 1
+        ATTACK_INPUT_CHANNELS = OUTPUT_CHANNELS
     else:
-        ATTACK_INPUT_CHANNELS = 2
+        ATTACK_INPUT_CHANNELS = OUTPUT_CHANNELS * 2
 
     model = models.resnet34(weights=models.ResNet34_Weights.DEFAULT)
     model.conv1 = nn.Sequential(nn.Conv2d(ATTACK_INPUT_CHANNELS, 3, 1), model.conv1,)
@@ -37,6 +38,10 @@ def train_attack_model(args, shadow_model, victim_model, dataloader, val_dataloa
             opt.zero_grad()
             with torch.no_grad():
                 pred = shadow_model(data)
+
+            # argmax defense
+            if args.defensetype == 2:
+                pred = torch.round(pred)
             
             if ATTACK_INPUT_CHANNELS == 2:
                 cat = labels.view(data.shape[0],1,data.shape[2],data.shape[3])

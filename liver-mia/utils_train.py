@@ -14,16 +14,16 @@ def get_victim(data, args):
     victim_val_dataloader = DataLoader(victim_val, batch_size=int(SEG_BATCH_SIZE))
 
     # no defense or argmax defense
-    if (args.defenstype == 1) or (args.defenstype == 2):
-        victim_model = train_segmentation_model(args.encoder, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
+    if (args.defensetype == 1) or (args.defensetype == 2):
+        victim_model = train_segmentation_model(args.victim, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
     # crop training
-    elif args.defenstype == 3:
-        victim_model = train_segmentation_model_crop(args.encoder, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
+    elif args.defensetype == 3:
+        victim_model = train_segmentation_model_crop(args.victim, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
     # mix-up
-    elif args.defenstype == 4:
-        victim_model = train_segmentation_model_mix(args.encoder, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
+    elif args.defensetype == 4:
+        victim_model = train_segmentation_model_mix(args.victim, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
     # min-max
-    elif args.defenstype == 5:
+    elif args.defensetype == 5:
         reg_val = LiverLoader(data.victim_attack_paths, attack=True)
         reg_val_dataloader = DataLoader(reg_val, batch_size=ATTACK_BATCH_SIZE, shuffle=True)
 
@@ -33,7 +33,7 @@ def get_victim(data, args):
             reg_train_dataloader=reg_val_dataloader, reg_epochs=REG_EPOCHS, reg_lr=ATTACK_LR,
         )
     # DP
-    # elif args.defenstype == 6:
+    # elif args.defensetype == 6:
     #     return
 
     return victim_model
@@ -45,7 +45,7 @@ def get_shadow(data, args):
     shadow_val = LiverLoader(data.shadow_val_paths)
     shadow_val_dataloader = DataLoader(shadow_val, batch_size=int(SEG_BATCH_SIZE))
 
-    shadow_model = train_segmentation_model(args.encoder, shadow_train_dataloader, shadow_val_dataloader, SEG_EPOCHS, SEG_LR)
+    shadow_model = train_segmentation_model(args.shadow, shadow_train_dataloader, shadow_val_dataloader, SEG_EPOCHS, SEG_LR)
 
     return shadow_model
 

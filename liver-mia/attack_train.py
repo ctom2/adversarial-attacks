@@ -24,6 +24,10 @@ def train_attack_model(args, shadow_model, victim_model, dataloader, val_dataloa
     opt = torch.optim.NAdam(model.parameters(), lr=lr, betas=(0.9, 0.999))
     criterion = nn.BCELoss()
 
+    q_accuracy = []
+    q_auc = []
+    q_f1 = []
+
     for epoch in range(epochs):
 
         pred_labels = np.array([])
@@ -64,15 +68,26 @@ def train_attack_model(args, shadow_model, victim_model, dataloader, val_dataloa
         print(
             'Training accuracy:', round(accuracy_score(true_labels, pred_labels),4),
             ', AUC:', round(roc_auc_score(true_labels, pred_labels),4),
-            ', F-score:', round(f1_score(true_labels, pred_labels),4),
+            ', F1-score:', round(f1_score(true_labels, pred_labels),4),
         )
 
-        test_attack_model(model, val_dataloader, victim_model=victim_model, input_channels=ATTACK_INPUT_CHANNELS)
+        res = test_attack_model(args, model, val_dataloader, victim_model=victim_model, input_channels=ATTACK_INPUT_CHANNELS)
+
+        if epoch >= epochs - 10:
+            q_accuracy.append(res[0])
+            q_auc.append(res[1])
+            q_f1.append(res[2])
+
+    print('\n\nLast 10 epochs testing averages: accuracy: {}, AUC: {}, F1-score: {}'.format(
+        round(np.mean(q_accuracy),4),
+        round(np.mean(q_auc),4),
+        round(np.mean(q_f1),4),
+    ))
 
     return model
 
 
-def test_attack_model(model, dataloader, shadow_model=None, victim_model=None, accuracy_only=False, input_channels=1):
+def test_attack_model(args, model, dataloader, shadow_model=None, victim_model=None, accuracy_only=False, input_channels=1):
     pred_labels = np.array([])
     true_labels = np.array([])
 
@@ -86,6 +101,10 @@ def test_attack_model(model, dataloader, shadow_model=None, victim_model=None, a
                 pred = victim_model(data)
             else:
                 pred = shadow_model(data)
+
+            # argmax defense
+            if args.defensetype == 2:
+                pred = torch.round(pred)
 
         if input_channels == 2:
             cat = labels.view(data.shape[0],1,data.shape[2],data.shape[3])
@@ -101,14 +120,21 @@ def test_attack_model(model, dataloader, shadow_model=None, victim_model=None, a
         pred_labels = np.concatenate((pred_labels, pred_l))
         true_labels = np.concatenate((true_labels, true_l))
 
+
+    accuracy_score = round(accuracy_score(true_labels, pred_labels),4)
+    auc_score = round(roc_auc_score(true_labels, pred_labels),4)
+    f_score = round(f1_score(true_labels, pred_labels),4)
+
     if accuracy_only:
-        print('Validation accuracy:', round(accuracy_score(true_labels, pred_labels),4))
+        print('Validation accuracy:', accuracy_score)
     else:
         print(
-            'Validation accuracy:', round(accuracy_score(true_labels, pred_labels),4),
-            ', AUC:', round(roc_auc_score(true_labels, pred_labels),4),
-            ', F-score:', round(f1_score(true_labels, pred_labels),4),
+            'Validation accuracy:', accuracy_score,
+            ', AUC:', auc_score,
+            ', F1-score:', f_score,
         )
 
         tn, fp, fn, tp = confusion_matrix(true_labels, pred_labels).ravel()
         print('TN: {}, FP: {}, FN: {}, TP: {}'.format(tn, fp, fn, tp))
+
+    return accuracy_score, auc_score, f_score

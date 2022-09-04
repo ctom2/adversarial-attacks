@@ -8,9 +8,9 @@ from args import ATTACK_BATCH_SIZE
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
-def global_attack(data, victim_model, threshold):
+def global_attack(data, args, victim_model, threshold):
     attack_val = LiverLoader(data.victim_attack_paths, attack=True)
-    attack_val_dataloader = DataLoader(attack_val, batch_size=ATTACK_BATCH_SIZE)
+    attack_val_dataloader = DataLoader(attack_val, batch_size=1)
 
     criterion = smp.losses.DiceLoss('binary')
     pred_labels = np.array([])
@@ -22,6 +22,9 @@ def global_attack(data, victim_model, threshold):
 
         with torch.no_grad(): pred = victim_model(data)
         
+        if args.defensetype == 2:
+            pred = torch.round(pred)
+
         instance_loss = criterion(pred, labels).item()
 
         # if instance loss is greater that the average train loss, then it is classified as non-member
@@ -34,7 +37,6 @@ def global_attack(data, victim_model, threshold):
 
         pred_labels = np.concatenate((pred_labels, pred_l))
         true_labels = np.concatenate((true_labels, true_l))
-
 
     print(
         'Validation accuracy:', round(accuracy_score(true_labels, pred_labels),4),

@@ -11,10 +11,23 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def train_attack_model(args, shadow_model, victim_model, dataloader, val_dataloader, epochs, lr):
     
-    if args.attacktype == 1:
-        ATTACK_INPUT_CHANNELS = OUTPUT_CHANNELS
+    # argmax defense
+    if args.defensetype == 2:
+        # Type-I attack
+        if args.attacktype == 1:
+            ATTACK_INPUT_CHANNELS = 1
+        # Type-II attack
+        else:
+            ATTACK_INPUT_CHANNELS = 2
+
+    # non argmax defense
     else:
-        ATTACK_INPUT_CHANNELS = OUTPUT_CHANNELS * 2
+        # Type-I attack
+        if args.attacktype == 1:
+            ATTACK_INPUT_CHANNELS = OUTPUT_CHANNELS
+        # Type-II attack
+        else:
+            ATTACK_INPUT_CHANNELS = OUTPUT_CHANNELS * 2
 
     model = models.resnet34(weights=models.ResNet34_Weights.DEFAULT)
     model.conv1 = nn.Sequential(nn.Conv2d(ATTACK_INPUT_CHANNELS, 3, 1), model.conv1,)
@@ -39,20 +52,21 @@ def train_attack_model(args, shadow_model, victim_model, dataloader, val_dataloa
         for data, labels, targets in dataloader:
             data, labels, targets = data.to(device), labels.to(device), targets.to(device)
 
+            print(labels.shape)
+            print(torch.max(labels))
+            print(torch.min(labels))
+
             opt.zero_grad()
             with torch.no_grad():
                 pred = shadow_model(data)
 
             # argmax defense
             if args.defensetype == 2:
-                pred = torch.argmax(pred, 1) # min = 0, max = 18
-                pred = nn.functional.one_hot(pred, num_classes=19)
-                s = pred.shape
-                pred = pred.view(s[0],s[3],s[1],s[2]).float()
-
+                pred = torch.argmax(pred, 1, keepdim=True) # min = 0, max = 18
                 
-            if ATTACK_INPUT_CHANNELS == 2:
-                cat = labels.view(data.shape[0],1,data.shape[2],data.shape[3])
+            # Type-II attack
+            if args.attacktype == 2:
+                cat = labels.view(data.shape[0],pred.shape[1],data.shape[2],data.shape[3])
                 s_output = torch.concat((pred, cat), dim=1)
             else:
                 s_output = pred
@@ -109,9 +123,6 @@ def test_attack_model(args, model, dataloader, shadow_model=None, victim_model=N
             # argmax defense
             if args.defensetype == 2:
                 pred = torch.argmax(pred, 1) # min = 0, max = 18
-                pred = nn.functional.one_hot(pred, num_classes=19)
-                s = pred.shape
-                pred = pred.view(s[0],s[3],s[1],s[2]).float()
 
         if input_channels == 2:
             cat = labels.view(data.shape[0],1,data.shape[2],data.shape[3])

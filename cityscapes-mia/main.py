@@ -30,7 +30,7 @@ if __name__ == "__main__":
     # 1 -- Type-I attack, 
     # 2 -- Type-II attack,
     # 3 -- Global loss-based attack
-    parser.add_argument("--attacktype", type=int, default=2)
+    parser.add_argument("--attacktype", type=int, default=1)
     # 1 -- no defense,
     # 2 -- argmax defense,
     # 3 -- crop training,
@@ -38,7 +38,7 @@ if __name__ == "__main__":
     # 5 -- min-max,
     # 6 -- DP
     parser.add_argument("--defensetype", type=int, default=0)
-    # same for victim and shadow models, [500 - 2000]
+    # same for victim and shadow models
     parser.add_argument("--trainsize", type=int, default=500)
     args = parser.parse_args()
 

@@ -11,7 +11,7 @@ def global_attack(data, args, victim_model, threshold):
     attack_val = CityscapesLoader(data.victim_attack_paths, attack=True)
     attack_val_dataloader = DataLoader(attack_val, batch_size=1)
 
-    criterion = smp.losses.DiceLoss('binary')
+    criterion = smp.losses.DiceLoss('multiclass')
     pred_labels = np.array([])
     true_labels = np.array([])
 
@@ -24,7 +24,7 @@ def global_attack(data, args, victim_model, threshold):
         if args.defensetype == 2:
             pred = torch.round(pred)
 
-        instance_loss = criterion(pred, labels).item()
+        instance_loss = criterion(pred.float(), labels.type(torch.int64)).item()
 
         # if instance loss is greater that the average train loss, then it is classified as non-member
         if instance_loss > threshold:

@@ -1,0 +1,616 @@
+!python3 main.py --victim "resnet34" --shadow "resnet34" --attacktype 1 --defensetype 1 --trainsize 400
+
+Victim encoder: resnet34
+Shadow encoder: resnet34
+Attack type: Type-I
+Defense type: No defense
+Train size: 400
+
+Images not being permuted
+total paths: 2975
+************************
+Victim train paths: 400
+Shadow train paths: 400
+Attack train paths: 400
+Attack val paths: 400
+************************
+ ** TRAINING VICTIM MODEL **
+ -- Staring training epoch 1 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.797
+WARN: resizing labels yielded fewer classes
+Validation loss: 0.7373
+ -- Staring training epoch 2 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.7277
+ -- Staring training epoch 3 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.7045
+ -- Staring training epoch 4 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.6762
+ -- Staring training epoch 5 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.6458
+ -- Staring training epoch 6 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.6182
+ -- Staring training epoch 7 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.5772
+ -- Staring training epoch 8 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.5591
+ -- Staring training epoch 9 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.5354
+ -- Staring training epoch 10 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.5044
+ -- Staring training epoch 11 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.4732
+WARN: resizing labels yielded fewer classes
+Validation loss: 0.5099
+ -- Staring training epoch 12 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.4665
+ -- Staring training epoch 13 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.444
+ -- Staring training epoch 14 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.4286
+ -- Staring training epoch 15 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.4011
+ -- Staring training epoch 16 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.3904
+ -- Staring training epoch 17 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.3742
+ -- Staring training epoch 18 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.364
+ -- Staring training epoch 19 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.3303
+ -- Staring training epoch 20 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.321
+ -- Staring training epoch 21 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.3039
+WARN: resizing labels yielded fewer classes
+Validation loss: 0.423
+ -- Staring training epoch 22 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2879
+ -- Staring training epoch 23 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.284
+ -- Staring training epoch 24 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2696
+ -- Staring training epoch 25 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2678
+ -- Staring training epoch 26 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2668
+ -- Staring training epoch 27 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2606
+ -- Staring training epoch 28 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.27
+ -- Staring training epoch 29 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2424
+ -- Staring training epoch 30 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2441
+ -- Staring training epoch 31 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2318
+WARN: resizing labels yielded fewer classes
+Validation loss: 0.408
+ -- Staring training epoch 32 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2365
+ -- Staring training epoch 33 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2186
+ -- Staring training epoch 34 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2205
+ -- Staring training epoch 35 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2084
+ -- Staring training epoch 36 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2196
+ -- Staring training epoch 37 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2164
+ -- Staring training epoch 38 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2033
+ -- Staring training epoch 39 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2102
+ -- Staring training epoch 40 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2048
+ -- Staring training epoch 41 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2095
+WARN: resizing labels yielded fewer classes
+Validation loss: 0.4199
+ -- Staring training epoch 42 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.197
+ -- Staring training epoch 43 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1988
+ -- Staring training epoch 44 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2016
+ -- Staring training epoch 45 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1919
+ -- Staring training epoch 46 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1926
+ -- Staring training epoch 47 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1915
+ -- Staring training epoch 48 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1911
+ -- Staring training epoch 49 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1968
+ -- Staring training epoch 50 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1843
+ -- Staring training epoch 51 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1964
+WARN: resizing labels yielded fewer classes
+Validation loss: 0.4115
+ -- Staring training epoch 52 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1891
+ -- Staring training epoch 53 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1804
+ -- Staring training epoch 54 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.189
+ -- Staring training epoch 55 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1851
+ -- Staring training epoch 56 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1757
+ -- Staring training epoch 57 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1784
+ -- Staring training epoch 58 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1743
+ -- Staring training epoch 59 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1718
+ -- Staring training epoch 60 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1716
+ -- Staring training epoch 61 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1782
+WARN: resizing labels yielded fewer classes
+Validation loss: 0.4194
+ -- Staring training epoch 62 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1738
+ -- Staring training epoch 63 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1843
+ -- Staring training epoch 64 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1697
+ -- Staring training epoch 65 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1813
+ -- Staring training epoch 66 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1806
+ -- Staring training epoch 67 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.169
+ -- Staring training epoch 68 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1657
+ -- Staring training epoch 69 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1665
+ -- Staring training epoch 70 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1695
+WARN: resizing labels yielded fewer classes
+Validation loss: 0.4204
+ ** TRAINING SHADOW MODEL **
+ -- Staring training epoch 1 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.8466
+Validation loss: 0.7646
+ -- Staring training epoch 2 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.7751
+ -- Staring training epoch 3 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.7059
+ -- Staring training epoch 4 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.6526
+ -- Staring training epoch 5 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.6215
+ -- Staring training epoch 6 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.5894
+ -- Staring training epoch 7 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.5702
+ -- Staring training epoch 8 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.555
+ -- Staring training epoch 9 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.5271
+ -- Staring training epoch 10 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.5167
+ -- Staring training epoch 11 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.4935
+Validation loss: 0.5292
+ -- Staring training epoch 12 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.4707
+ -- Staring training epoch 13 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.4472
+ -- Staring training epoch 14 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.4174
+ -- Staring training epoch 15 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.414
+ -- Staring training epoch 16 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.3857
+ -- Staring training epoch 17 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.3659
+ -- Staring training epoch 18 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.3521
+ -- Staring training epoch 19 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.3386
+ -- Staring training epoch 20 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.3194
+ -- Staring training epoch 21 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.3002
+Validation loss: 0.4346
+ -- Staring training epoch 22 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2934
+ -- Staring training epoch 23 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2945
+ -- Staring training epoch 24 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2783
+ -- Staring training epoch 25 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2619
+ -- Staring training epoch 26 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2636
+ -- Staring training epoch 27 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2583
+ -- Staring training epoch 28 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2576
+ -- Staring training epoch 29 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2478
+ -- Staring training epoch 30 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2501
+ -- Staring training epoch 31 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2254
+Validation loss: 0.4325
+ -- Staring training epoch 32 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2248
+ -- Staring training epoch 33 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2215
+ -- Staring training epoch 34 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2237
+ -- Staring training epoch 35 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2214
+ -- Staring training epoch 36 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2151
+ -- Staring training epoch 37 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2157
+ -- Staring training epoch 38 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2214
+ -- Staring training epoch 39 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2128
+ -- Staring training epoch 40 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2061
+ -- Staring training epoch 41 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1998
+Validation loss: 0.423
+ -- Staring training epoch 42 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.205
+ -- Staring training epoch 43 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2053
+ -- Staring training epoch 44 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1963
+ -- Staring training epoch 45 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1984
+ -- Staring training epoch 46 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1998
+ -- Staring training epoch 47 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1958
+ -- Staring training epoch 48 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.2017
+ -- Staring training epoch 49 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1832
+ -- Staring training epoch 50 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1921
+ -- Staring training epoch 51 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1861
+Validation loss: 0.4195
+ -- Staring training epoch 52 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1858
+ -- Staring training epoch 53 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1905
+ -- Staring training epoch 54 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1885
+ -- Staring training epoch 55 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1849
+ -- Staring training epoch 56 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1735
+ -- Staring training epoch 57 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1783
+ -- Staring training epoch 58 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1791
+ -- Staring training epoch 59 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1807
+ -- Staring training epoch 60 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1786
+ -- Staring training epoch 61 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1715
+Validation loss: 0.4204
+ -- Staring training epoch 62 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1795
+ -- Staring training epoch 63 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.172
+ -- Staring training epoch 64 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1727
+ -- Staring training epoch 65 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1684
+ -- Staring training epoch 66 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1695
+ -- Staring training epoch 67 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1646
+ -- Staring training epoch 68 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1734
+ -- Staring training epoch 69 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1651
+ -- Staring training epoch 70 --
+WARN: resizing labels yielded fewer classes
+Training loss: 0.1609
+Validation loss: 0.4128
+ ** MEMBERSHIP INFERENCE ATTACK **
+ -- Staring training epoch 1 --
+Training accuracy: 0.75 , AUC: 0.75 , F1-score: 0.7748
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.5725 , AUC: 0.5725 , F1-score: 0.6919
+TN: 37, FP: 163, FN: 8, TP: 192
+ -- Staring training epoch 2 --
+Training accuracy: 0.8875 , AUC: 0.8875 , F1-score: 0.8894
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.7525 , AUC: 0.7525 , F1-score: 0.7898
+TN: 115, FP: 85, FN: 14, TP: 186
+ -- Staring training epoch 3 --
+Training accuracy: 0.885 , AUC: 0.885 , F1-score: 0.885
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.8025 , AUC: 0.8025 , F1-score: 0.8068
+TN: 156, FP: 44, FN: 35, TP: 165
+ -- Staring training epoch 4 --
+Training accuracy: 0.9 , AUC: 0.9 , F1-score: 0.9
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.58 , AUC: 0.58 , F1-score: 0.6989
+TN: 37, FP: 163, FN: 5, TP: 195
+ -- Staring training epoch 5 --
+Training accuracy: 0.9275 , AUC: 0.9275 , F1-score: 0.9273
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.5225 , AUC: 0.5225 , F1-score: 0.6768
+TN: 9, FP: 191, FN: 0, TP: 200
+ -- Staring training epoch 6 --
+Training accuracy: 0.925 , AUC: 0.925 , F1-score: 0.9254
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.72 , AUC: 0.72 , F1-score: 0.6744
+TN: 172, FP: 28, FN: 84, TP: 116
+ -- Staring training epoch 7 --
+Training accuracy: 0.9675 , AUC: 0.9675 , F1-score: 0.9676
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.6875 , AUC: 0.6875 , F1-score: 0.7485
+TN: 89, FP: 111, FN: 14, TP: 186
+ -- Staring training epoch 8 --
+Training accuracy: 0.96 , AUC: 0.96 , F1-score: 0.96
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.5175 , AUC: 0.5175 , F1-score: 0.6723
+TN: 9, FP: 191, FN: 2, TP: 198
+ -- Staring training epoch 9 --
+Training accuracy: 0.9375 , AUC: 0.9375 , F1-score: 0.9367
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.78 , AUC: 0.78 , F1-score: 0.7778
+TN: 158, FP: 42, FN: 46, TP: 154
+ -- Staring training epoch 10 --
+Training accuracy: 0.97 , AUC: 0.97 , F1-score: 0.9701
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.6775 , AUC: 0.6775 , F1-score: 0.5597
+TN: 189, FP: 11, FN: 118, TP: 82
+ -- Staring training epoch 11 --
+Training accuracy: 0.985 , AUC: 0.985 , F1-score: 0.985
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.7275 , AUC: 0.7275 , F1-score: 0.7816
+TN: 96, FP: 104, FN: 5, TP: 195
+ -- Staring training epoch 12 --
+Training accuracy: 0.9875 , AUC: 0.9875 , F1-score: 0.9875
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.5325 , AUC: 0.5325 , F1-score: 0.6803
+TN: 14, FP: 186, FN: 1, TP: 199
+ -- Staring training epoch 13 --
+Training accuracy: 0.9675 , AUC: 0.9675 , F1-score: 0.9674
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.665 , AUC: 0.665 , F1-score: 0.7403
+TN: 75, FP: 125, FN: 9, TP: 191
+ -- Staring training epoch 14 --
+Training accuracy: 0.9725 , AUC: 0.9725 , F1-score: 0.9724
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.62 , AUC: 0.62 , F1-score: 0.7196
+TN: 53, FP: 147, FN: 5, TP: 195
+ -- Staring training epoch 15 --
+Training accuracy: 0.98 , AUC: 0.98 , F1-score: 0.9801
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.6925 , AUC: 0.6925 , F1-score: 0.7525
+TN: 90, FP: 110, FN: 13, TP: 187
+ -- Staring training epoch 16 --
+Training accuracy: 0.99 , AUC: 0.99 , F1-score: 0.99
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.635 , AUC: 0.635 , F1-score: 0.7148
+TN: 71, FP: 129, FN: 17, TP: 183
+ -- Staring training epoch 17 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.605 , AUC: 0.605 , F1-score: 0.7074
+TN: 51, FP: 149, FN: 9, TP: 191
+ -- Staring training epoch 18 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.6 , AUC: 0.6 , F1-score: 0.708
+TN: 46, FP: 154, FN: 6, TP: 194
+ -- Staring training epoch 19 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.5825 , AUC: 0.5825 , F1-score: 0.7013
+TN: 37, FP: 163, FN: 4, TP: 196
+ -- Staring training epoch 20 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.585 , AUC: 0.585 , F1-score: 0.7036
+TN: 37, FP: 163, FN: 3, TP: 197
+ -- Staring training epoch 21 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.615 , AUC: 0.615 , F1-score: 0.7138
+TN: 54, FP: 146, FN: 8, TP: 192
+ -- Staring training epoch 22 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.6275 , AUC: 0.6275 , F1-score: 0.7205
+TN: 59, FP: 141, FN: 8, TP: 192
+ -- Staring training epoch 23 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.58 , AUC: 0.58 , F1-score: 0.7
+TN: 36, FP: 164, FN: 4, TP: 196
+ -- Staring training epoch 24 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.5725 , AUC: 0.5725 , F1-score: 0.6973
+TN: 32, FP: 168, FN: 3, TP: 197
+ -- Staring training epoch 25 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.6025 , AUC: 0.6025 , F1-score: 0.7093
+TN: 47, FP: 153, FN: 6, TP: 194
+ -- Staring training epoch 26 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.6425 , AUC: 0.6425 , F1-score: 0.7276
+TN: 66, FP: 134, FN: 9, TP: 191
+ -- Staring training epoch 27 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.6225 , AUC: 0.6225 , F1-score: 0.7199
+TN: 55, FP: 145, FN: 6, TP: 194
+ -- Staring training epoch 28 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.615 , AUC: 0.615 , F1-score: 0.7159
+TN: 52, FP: 148, FN: 6, TP: 194
+ -- Staring training epoch 29 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.63 , AUC: 0.63 , F1-score: 0.7228
+TN: 59, FP: 141, FN: 7, TP: 193
+ -- Staring training epoch 30 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+WARN: resizing labels yielded fewer classes
+Validation accuracy: 0.62 , AUC: 0.62 , F1-score: 0.7206
+TN: 52, FP: 148, FN: 4, TP: 196
+
+
+Last 10 epochs testing averages: accuracy: 0.6127, AUC: 0.6127, F1-score: 0.7148

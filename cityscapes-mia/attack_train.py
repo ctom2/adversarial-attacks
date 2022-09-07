@@ -52,10 +52,6 @@ def train_attack_model(args, shadow_model, victim_model, dataloader, val_dataloa
         for data, labels, targets in dataloader:
             data, labels, targets = data.to(device), labels.to(device), targets.to(device)
 
-            print(labels.shape)
-            print(torch.max(labels))
-            print(torch.min(labels))
-
             opt.zero_grad()
             with torch.no_grad():
                 pred = shadow_model(data)
@@ -66,7 +62,11 @@ def train_attack_model(args, shadow_model, victim_model, dataloader, val_dataloa
                 
             # Type-II attack
             if args.attacktype == 2:
-                cat = labels.view(data.shape[0],pred.shape[1],data.shape[2],data.shape[3])
+                # non-argmax defense
+                if args.defensetype != 2:
+                    labels = nn.functional.one_hot(labels, num_classes=19)
+
+                cat = labels.view(data.shape[0],pred.shape[1],data.shape[2],data.shape[3]).float()
                 s_output = torch.concat((pred, cat), dim=1)
             else:
                 s_output = pred
@@ -122,10 +122,15 @@ def test_attack_model(args, model, dataloader, shadow_model=None, victim_model=N
 
             # argmax defense
             if args.defensetype == 2:
-                pred = torch.argmax(pred, 1) # min = 0, max = 18
+                pred = torch.argmax(pred, 1, keepdim=True) # min = 0, max = 18
+                
+        # Type-II attack
+        if args.attacktype == 2:
+            # non-argmax defense
+            if args.defensetype != 2:
+                labels = nn.functional.one_hot(labels, num_classes=19)
 
-        if input_channels == 2:
-            cat = labels.view(data.shape[0],1,data.shape[2],data.shape[3])
+            cat = labels.view(data.shape[0],pred.shape[1],data.shape[2],data.shape[3]).float()
             s_output = torch.concat((pred, cat), dim=1)
         else:
             s_output = pred

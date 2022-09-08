@@ -1,0 +1,665 @@
+!python main.py --victim "resnet34" --shadow "resnet34" --attacktype 3 --defensetype 5
+
+Victim encoder: resnet34
+Shadow encoder: resnet34
+Attack type: Global-loss
+Defense type: Min-max
+Train size: 300
+
+************************
+Victim train paths: 300
+Shadow train paths: 300
+Attack train paths: 400
+Attack val paths: 400
+************************
+ ** TRAINING VICTIM MODEL **
+ -- Staring training epoch 1 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.5225 , AUC: 0.5225 , F-score: 0.4738
+ -- Updating segmentation model --
+Training loss: 0.9094
+Seg. model loss: 0.7188
+Reg. model accuracy: 0.4828
+Validation loss: 0.6507
+ -- Staring training epoch 2 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.5225 , AUC: 0.5225 , F-score: 0.4987
+ -- Updating segmentation model --
+Training loss: 0.8787
+Seg. model loss: 0.663
+Reg. model accuracy: 0.5464
+ -- Staring training epoch 3 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.52 , AUC: 0.52 , F-score: 0.5176
+ -- Updating segmentation model --
+Training loss: 0.8196
+Seg. model loss: 0.6007
+Reg. model accuracy: 0.5545
+ -- Staring training epoch 4 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.5575 , AUC: 0.5575 , F-score: 0.5586
+ -- Updating segmentation model --
+Training loss: 0.7593
+Seg. model loss: 0.5546
+Reg. model accuracy: 0.5185
+ -- Staring training epoch 5 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.5525 , AUC: 0.5525 , F-score: 0.558
+ -- Updating segmentation model --
+Training loss: 0.7191
+Seg. model loss: 0.5168
+Reg. model accuracy: 0.5125
+ -- Staring training epoch 6 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.605 , AUC: 0.605 , F-score: 0.6256
+ -- Updating segmentation model --
+Training loss: 0.6689
+Seg. model loss: 0.4831
+Reg. model accuracy: 0.471
+ -- Staring training epoch 7 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.6575 , AUC: 0.6575 , F-score: 0.6617
+ -- Updating segmentation model --
+Training loss: 0.6546
+Seg. model loss: 0.4537
+Reg. model accuracy: 0.5088
+ -- Staring training epoch 8 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.6625 , AUC: 0.6625 , F-score: 0.6824
+ -- Updating segmentation model --
+Training loss: 0.6258
+Seg. model loss: 0.4196
+Reg. model accuracy: 0.5222
+ -- Staring training epoch 9 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.6725 , AUC: 0.6725 , F-score: 0.6961
+ -- Updating segmentation model --
+Training loss: 0.5719
+Seg. model loss: 0.3922
+Reg. model accuracy: 0.4553
+ -- Staring training epoch 10 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.66 , AUC: 0.66 , F-score: 0.6667
+ -- Updating segmentation model --
+Training loss: 0.5685
+Seg. model loss: 0.3725
+Reg. model accuracy: 0.4968
+ -- Staring training epoch 11 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.6325 , AUC: 0.6325 , F-score: 0.6589
+ -- Updating segmentation model --
+Training loss: 0.5614
+Seg. model loss: 0.3499
+Reg. model accuracy: 0.5354
+Validation loss: 0.3592
+ -- Staring training epoch 12 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.7025 , AUC: 0.7025 , F-score: 0.7105
+ -- Updating segmentation model --
+Training loss: 0.5385
+Seg. model loss: 0.3286
+Reg. model accuracy: 0.5312
+ -- Staring training epoch 13 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.6875 , AUC: 0.6875 , F-score: 0.6988
+ -- Updating segmentation model --
+Training loss: 0.4985
+Seg. model loss: 0.3062
+Reg. model accuracy: 0.4875
+ -- Staring training epoch 14 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.73 , AUC: 0.73 , F-score: 0.7353
+ -- Updating segmentation model --
+Training loss: 0.4458
+Seg. model loss: 0.2734
+Reg. model accuracy: 0.4374
+ -- Staring training epoch 15 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.7325 , AUC: 0.7325 , F-score: 0.7277
+ -- Updating segmentation model --
+Training loss: 0.488
+Seg. model loss: 0.2579
+Reg. model accuracy: 0.5827
+ -- Staring training epoch 16 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.735 , AUC: 0.735 , F-score: 0.7464
+ -- Updating segmentation model --
+Training loss: 0.4057
+Seg. model loss: 0.2353
+Reg. model accuracy: 0.4308
+ -- Staring training epoch 17 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.775 , AUC: 0.775 , F-score: 0.7794
+ -- Updating segmentation model --
+Training loss: 0.394
+Seg. model loss: 0.2067
+Reg. model accuracy: 0.4746
+ -- Staring training epoch 18 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.7325 , AUC: 0.7325 , F-score: 0.7397
+ -- Updating segmentation model --
+Training loss: 0.3949
+Seg. model loss: 0.2094
+Reg. model accuracy: 0.4701
+ -- Staring training epoch 19 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.8025 , AUC: 0.8025 , F-score: 0.8049
+ -- Updating segmentation model --
+Training loss: 0.3878
+Seg. model loss: 0.2004
+Reg. model accuracy: 0.4749
+ -- Staring training epoch 20 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.775 , AUC: 0.775 , F-score: 0.7716
+ -- Updating segmentation model --
+Training loss: 0.396
+Seg. model loss: 0.1828
+Reg. model accuracy: 0.5398
+ -- Staring training epoch 21 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.795 , AUC: 0.795 , F-score: 0.801
+ -- Updating segmentation model --
+Training loss: 0.3581
+Seg. model loss: 0.1705
+Reg. model accuracy: 0.4751
+Validation loss: 0.2335
+ -- Staring training epoch 22 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.8225 , AUC: 0.8225 , F-score: 0.8238
+ -- Updating segmentation model --
+Training loss: 0.3587
+Seg. model loss: 0.1567
+Reg. model accuracy: 0.5123
+ -- Staring training epoch 23 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.8325 , AUC: 0.8325 , F-score: 0.8312
+ -- Updating segmentation model --
+Training loss: 0.3509
+Seg. model loss: 0.1513
+Reg. model accuracy: 0.5057
+ -- Staring training epoch 24 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.8225 , AUC: 0.8225 , F-score: 0.8247
+ -- Updating segmentation model --
+Training loss: 0.3503
+Seg. model loss: 0.1508
+Reg. model accuracy: 0.5039
+ -- Staring training epoch 25 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.8475 , AUC: 0.8475 , F-score: 0.8479
+ -- Updating segmentation model --
+Training loss: 0.3627
+Seg. model loss: 0.1536
+Reg. model accuracy: 0.5299
+ -- Staring training epoch 26 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.8775 , AUC: 0.8775 , F-score: 0.8766
+ -- Updating segmentation model --
+Training loss: 0.3762
+Seg. model loss: 0.1404
+Reg. model accuracy: 0.5979
+ -- Staring training epoch 27 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.87 , AUC: 0.87 , F-score: 0.8732
+ -- Updating segmentation model --
+Training loss: 0.3696
+Seg. model loss: 0.1476
+Reg. model accuracy: 0.5627
+ -- Staring training epoch 28 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.865 , AUC: 0.865 , F-score: 0.8643
+ -- Updating segmentation model --
+Training loss: 0.3727
+Seg. model loss: 0.1316
+Reg. model accuracy: 0.6102
+ -- Staring training epoch 29 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.89 , AUC: 0.89 , F-score: 0.8932
+ -- Updating segmentation model --
+Training loss: 0.3361
+Seg. model loss: 0.1248
+Reg. model accuracy: 0.5359
+ -- Staring training epoch 30 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.92 , AUC: 0.92 , F-score: 0.9196
+ -- Updating segmentation model --
+Training loss: 0.3229
+Seg. model loss: 0.1264
+Reg. model accuracy: 0.4982
+ -- Staring training epoch 31 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.895 , AUC: 0.895 , F-score: 0.895
+ -- Updating segmentation model --
+Training loss: 0.3213
+Seg. model loss: 0.1147
+Reg. model accuracy: 0.5242
+Validation loss: 0.1998
+ -- Staring training epoch 32 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9125 , AUC: 0.9125 , F-score: 0.9132
+ -- Updating segmentation model --
+Training loss: 0.3464
+Seg. model loss: 0.1103
+Reg. model accuracy: 0.5967
+ -- Staring training epoch 33 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.93 , AUC: 0.93 , F-score: 0.9303
+ -- Updating segmentation model --
+Training loss: 0.3364
+Seg. model loss: 0.1047
+Reg. model accuracy: 0.5859
+ -- Staring training epoch 34 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9425 , AUC: 0.9425 , F-score: 0.9429
+ -- Updating segmentation model --
+Training loss: 0.3719
+Seg. model loss: 0.1107
+Reg. model accuracy: 0.6605
+ -- Staring training epoch 35 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9425 , AUC: 0.9425 , F-score: 0.9429
+ -- Updating segmentation model --
+Training loss: 0.3421
+Seg. model loss: 0.1252
+Reg. model accuracy: 0.5496
+ -- Staring training epoch 36 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.935 , AUC: 0.935 , F-score: 0.9356
+ -- Updating segmentation model --
+Training loss: 0.3743
+Seg. model loss: 0.1165
+Reg. model accuracy: 0.6544
+ -- Staring training epoch 37 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.945 , AUC: 0.945 , F-score: 0.9455
+ -- Updating segmentation model --
+Training loss: 0.3876
+Seg. model loss: 0.0988
+Reg. model accuracy: 0.7288
+ -- Staring training epoch 38 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9475 , AUC: 0.9475 , F-score: 0.9468
+ -- Updating segmentation model --
+Training loss: 0.3808
+Seg. model loss: 0.0934
+Reg. model accuracy: 0.7306
+ -- Staring training epoch 39 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9625 , AUC: 0.9625 , F-score: 0.9618
+ -- Updating segmentation model --
+Training loss: 0.3464
+Seg. model loss: 0.11
+Reg. model accuracy: 0.6008
+ -- Staring training epoch 40 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9625 , AUC: 0.9625 , F-score: 0.9624
+ -- Updating segmentation model --
+Training loss: 0.3552
+Seg. model loss: 0.0996
+Reg. model accuracy: 0.6446
+ -- Staring training epoch 41 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9625 , AUC: 0.9625 , F-score: 0.9624
+ -- Updating segmentation model --
+Training loss: 0.3408
+Seg. model loss: 0.1027
+Reg. model accuracy: 0.6017
+Validation loss: 0.2465
+ -- Staring training epoch 42 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9375 , AUC: 0.9375 , F-score: 0.9377
+ -- Updating segmentation model --
+Training loss: 0.3781
+Seg. model loss: 0.0992
+Reg. model accuracy: 0.7087
+ -- Staring training epoch 43 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.945 , AUC: 0.945 , F-score: 0.9453
+ -- Updating segmentation model --
+Training loss: 0.3761
+Seg. model loss: 0.0907
+Reg. model accuracy: 0.723
+ -- Staring training epoch 44 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.965 , AUC: 0.965 , F-score: 0.9646
+ -- Updating segmentation model --
+Training loss: 0.3928
+Seg. model loss: 0.0933
+Reg. model accuracy: 0.7582
+ -- Staring training epoch 45 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9625 , AUC: 0.9625 , F-score: 0.9628
+ -- Updating segmentation model --
+Training loss: 0.3488
+Seg. model loss: 0.0781
+Reg. model accuracy: 0.6839
+ -- Staring training epoch 46 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9575 , AUC: 0.9575 , F-score: 0.9574
+ -- Updating segmentation model --
+Training loss: 0.4025
+Seg. model loss: 0.0739
+Reg. model accuracy: 0.8333
+ -- Staring training epoch 47 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9725 , AUC: 0.9725 , F-score: 0.9727
+ -- Updating segmentation model --
+Training loss: 0.3209
+Seg. model loss: 0.0866
+Reg. model accuracy: 0.5903
+ -- Staring training epoch 48 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.96 , AUC: 0.96 , F-score: 0.9598
+ -- Updating segmentation model --
+Training loss: 0.2888
+Seg. model loss: 0.1015
+Reg. model accuracy: 0.4748
+ -- Staring training epoch 49 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9675 , AUC: 0.9675 , F-score: 0.9677
+ -- Updating segmentation model --
+Training loss: 0.3026
+Seg. model loss: 0.1021
+Reg. model accuracy: 0.5083
+ -- Staring training epoch 50 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9575 , AUC: 0.9575 , F-score: 0.957
+ -- Updating segmentation model --
+Training loss: 0.3886
+Seg. model loss: 0.094
+Reg. model accuracy: 0.7444
+ -- Staring training epoch 51 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.965 , AUC: 0.965 , F-score: 0.9653
+ -- Updating segmentation model --
+Training loss: 0.3791
+Seg. model loss: 0.0822
+Reg. model accuracy: 0.7516
+Validation loss: 0.1724
+ -- Staring training epoch 52 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.97 , AUC: 0.97 , F-score: 0.97
+ -- Updating segmentation model --
+Training loss: 0.325
+Seg. model loss: 0.0878
+Reg. model accuracy: 0.6004
+ -- Staring training epoch 53 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.965 , AUC: 0.965 , F-score: 0.965
+ -- Updating segmentation model --
+Training loss: 0.3377
+Seg. model loss: 0.0953
+Reg. model accuracy: 0.612
+ -- Staring training epoch 54 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.965 , AUC: 0.965 , F-score: 0.9648
+ -- Updating segmentation model --
+Training loss: 0.3605
+Seg. model loss: 0.097
+Reg. model accuracy: 0.6674
+ -- Staring training epoch 55 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9625 , AUC: 0.9625 , F-score: 0.9624
+ -- Updating segmentation model --
+Training loss: 0.2991
+Seg. model loss: 0.0831
+Reg. model accuracy: 0.5459
+ -- Staring training epoch 56 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.965 , AUC: 0.965 , F-score: 0.9646
+ -- Updating segmentation model --
+Training loss: 0.4013
+Seg. model loss: 0.0799
+Reg. model accuracy: 0.8134
+ -- Staring training epoch 57 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.975 , AUC: 0.975 , F-score: 0.9749
+ -- Updating segmentation model --
+Training loss: 0.3486
+Seg. model loss: 0.0678
+Reg. model accuracy: 0.7093
+ -- Staring training epoch 58 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9825 , AUC: 0.9825 , F-score: 0.9825
+ -- Updating segmentation model --
+Training loss: 0.3469
+Seg. model loss: 0.0707
+Reg. model accuracy: 0.6972
+ -- Staring training epoch 59 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9825 , AUC: 0.9825 , F-score: 0.9825
+ -- Updating segmentation model --
+Training loss: 0.3441
+Seg. model loss: 0.0857
+Reg. model accuracy: 0.6533
+ -- Staring training epoch 60 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9775 , AUC: 0.9775 , F-score: 0.9773
+ -- Updating segmentation model --
+Training loss: 0.3733
+Seg. model loss: 0.1073
+Reg. model accuracy: 0.6706
+ -- Staring training epoch 61 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9575 , AUC: 0.9575 , F-score: 0.9572
+ -- Updating segmentation model --
+Training loss: 0.4059
+Seg. model loss: 0.0902
+Reg. model accuracy: 0.7987
+Validation loss: 0.2146
+ -- Staring training epoch 62 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9875 , AUC: 0.9875 , F-score: 0.9875
+ -- Updating segmentation model --
+Training loss: 0.3944
+Seg. model loss: 0.077
+Reg. model accuracy: 0.8036
+ -- Staring training epoch 63 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9775 , AUC: 0.9775 , F-score: 0.9774
+ -- Updating segmentation model --
+Training loss: 0.3467
+Seg. model loss: 0.0654
+Reg. model accuracy: 0.7081
+ -- Staring training epoch 64 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9825 , AUC: 0.9825 , F-score: 0.9825
+ -- Updating segmentation model --
+Training loss: 0.3949
+Seg. model loss: 0.0733
+Reg. model accuracy: 0.8144
+ -- Staring training epoch 65 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.985 , AUC: 0.985 , F-score: 0.985
+ -- Updating segmentation model --
+Training loss: 0.3894
+Seg. model loss: 0.0654
+Reg. model accuracy: 0.8214
+ -- Staring training epoch 66 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.98 , AUC: 0.98 , F-score: 0.98
+ -- Updating segmentation model --
+Training loss: 0.3225
+Seg. model loss: 0.0732
+Reg. model accuracy: 0.6293
+ -- Staring training epoch 67 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.97 , AUC: 0.97 , F-score: 0.9697
+ -- Updating segmentation model --
+Training loss: 0.3645
+Seg. model loss: 0.0684
+Reg. model accuracy: 0.7506
+ -- Staring training epoch 68 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.99 , AUC: 0.99 , F-score: 0.99
+ -- Updating segmentation model --
+Training loss: 0.3686
+Seg. model loss: 0.0579
+Reg. model accuracy: 0.7868
+ -- Staring training epoch 69 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.9925 , AUC: 0.9925 , F-score: 0.9925
+ -- Updating segmentation model --
+Training loss: 0.3733
+Seg. model loss: 0.0626
+Reg. model accuracy: 0.7859
+ -- Staring training epoch 70 --
+ -- Updating adversary regularisation model --
+Training accuracy: 0.97 , AUC: 0.97 , F-score: 0.9698
+ -- Updating segmentation model --
+Training loss: 0.3735
+Seg. model loss: 0.061
+Reg. model accuracy: 0.7912
+Validation loss: 0.1584
+ ** TRAINING SHADOW MODEL **
+ -- Staring training epoch 1 --
+Training loss: 0.6499
+Validation loss: 0.5139
+ -- Staring training epoch 2 --
+Training loss: 0.5072
+ -- Staring training epoch 3 --
+Training loss: 0.4169
+ -- Staring training epoch 4 --
+Training loss: 0.3425
+ -- Staring training epoch 5 --
+Training loss: 0.2917
+ -- Staring training epoch 6 --
+Training loss: 0.2408
+ -- Staring training epoch 7 --
+Training loss: 0.2244
+ -- Staring training epoch 8 --
+Training loss: 0.1901
+ -- Staring training epoch 9 --
+Training loss: 0.1588
+ -- Staring training epoch 10 --
+Training loss: 0.1373
+ -- Staring training epoch 11 --
+Training loss: 0.1221
+Validation loss: 0.2189
+ -- Staring training epoch 12 --
+Training loss: 0.1186
+ -- Staring training epoch 13 --
+Training loss: 0.1213
+ -- Staring training epoch 14 --
+Training loss: 0.1202
+ -- Staring training epoch 15 --
+Training loss: 0.0919
+ -- Staring training epoch 16 --
+Training loss: 0.0851
+ -- Staring training epoch 17 --
+Training loss: 0.0816
+ -- Staring training epoch 18 --
+Training loss: 0.0709
+ -- Staring training epoch 19 --
+Training loss: 0.0654
+ -- Staring training epoch 20 --
+Training loss: 0.0614
+ -- Staring training epoch 21 --
+Training loss: 0.0571
+Validation loss: 0.214
+ -- Staring training epoch 22 --
+Training loss: 0.0534
+ -- Staring training epoch 23 --
+Training loss: 0.0518
+ -- Staring training epoch 24 --
+Training loss: 0.0463
+ -- Staring training epoch 25 --
+Training loss: 0.0453
+ -- Staring training epoch 26 --
+Training loss: 0.0428
+ -- Staring training epoch 27 --
+Training loss: 0.0397
+ -- Staring training epoch 28 --
+Training loss: 0.0403
+ -- Staring training epoch 29 --
+Training loss: 0.0392
+ -- Staring training epoch 30 --
+Training loss: 0.0373
+ -- Staring training epoch 31 --
+Training loss: 0.0366
+Validation loss: 0.1882
+ -- Staring training epoch 32 --
+Training loss: 0.0338
+ -- Staring training epoch 33 --
+Training loss: 0.0343
+ -- Staring training epoch 34 --
+Training loss: 0.0334
+ -- Staring training epoch 35 --
+Training loss: 0.0324
+ -- Staring training epoch 36 --
+Training loss: 0.0309
+ -- Staring training epoch 37 --
+Training loss: 0.0303
+ -- Staring training epoch 38 --
+Training loss: 0.0313
+ -- Staring training epoch 39 --
+Training loss: 0.0336
+ -- Staring training epoch 40 --
+Training loss: 0.0313
+ -- Staring training epoch 41 --
+Training loss: 0.0325
+Validation loss: 0.1965
+ -- Staring training epoch 42 --
+Training loss: 0.0302
+ -- Staring training epoch 43 --
+Training loss: 0.0286
+ -- Staring training epoch 44 --
+Training loss: 0.0287
+ -- Staring training epoch 45 --
+Training loss: 0.027
+ -- Staring training epoch 46 --
+Training loss: 0.0279
+ -- Staring training epoch 47 --
+Training loss: 0.027
+ -- Staring training epoch 48 --
+Training loss: 0.0272
+ -- Staring training epoch 49 --
+Training loss: 0.0262
+ -- Staring training epoch 50 --
+Training loss: 0.0259
+ -- Staring training epoch 51 --
+Training loss: 0.0253
+Validation loss: 0.1937
+ -- Staring training epoch 52 --
+Training loss: 0.0262
+ -- Staring training epoch 53 --
+Training loss: 0.0253
+ -- Staring training epoch 54 --
+Training loss: 0.0268
+ -- Staring training epoch 55 --
+Training loss: 0.0249
+ -- Staring training epoch 56 --
+Training loss: 0.0244
+ -- Staring training epoch 57 --
+Training loss: 0.0233
+ -- Staring training epoch 58 --
+Training loss: 0.0229
+ -- Staring training epoch 59 --
+Training loss: 0.0231
+ -- Staring training epoch 60 --
+Training loss: 0.0234
+ -- Staring training epoch 61 --
+Training loss: 0.0241
+Validation loss: 0.1948
+ -- Staring training epoch 62 --
+Training loss: 0.0233
+ -- Staring training epoch 63 --
+Training loss: 0.0229
+ -- Staring training epoch 64 --
+Training loss: 0.022
+ -- Staring training epoch 65 --
+Training loss: 0.0224
+ -- Staring training epoch 66 --
+Training loss: 0.0223
+ -- Staring training epoch 67 --
+Training loss: 0.0219
+ -- Staring training epoch 68 --
+Training loss: 0.0229
+ -- Staring training epoch 69 --
+Training loss: 0.0227
+ -- Staring training epoch 70 --
+Training loss: 0.0223
+Validation loss: 0.1827
+ ** MEMBERSHIP INFERENCE ATTACK **
+Validation accuracy: 0.61 , AUC: 0.61 , F-score: 0.7079
+TN: 55, FP: 145, FN: 11, TP: 189

@@ -21,7 +21,7 @@ def mixup_batch(imgs, lbls):
 
 def train_segmentation_model_mix(encoder, dataloader, val_dataloader, epochs, lr):
 
-    model = smp.Unet(encoder_name=encoder, in_channels=3, classes=19).to(device)
+    model = smp.Unet(encoder_name=encoder, in_channels=3, classes=1).to(device)
 
     criterion = smp.losses.DiceLoss('binary')
     opt = torch.optim.NAdam(model.parameters(), lr=lr, betas=(0.9, 0.999))

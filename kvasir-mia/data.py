@@ -4,7 +4,6 @@ import numpy as np
 import torch
 from torch.utils import data
 from torch.utils.data import DataLoader
-import SimpleITK as sitk
 
 IMG_DIR='Kvasir-SEG/images/'
 LBL_DIR='Kvasir-SEG/masks/'
@@ -73,7 +72,7 @@ class KvasirLoader(data.Dataset):
         self.img_dir = IMG_DIR
         self.lbl_dir = LBL_DIR
 
-        self.img_size = (512,512)
+        self.img_size = (256,256)
         self.attack = attack
 
         self.img_paths = data['imgs']
@@ -110,13 +109,14 @@ class KvasirLoader(data.Dataset):
     def transform(self, img, lbl):
         img = cv2.resize(img, (self.img_size[0], self.img_size[1]))
         img = img.astype(np.float64)
+        # NHWC -> NCHW
+        img = img.transpose(2, 0, 1)
         
         lbl = lbl.astype(float)
         lbl = cv2.resize(lbl, (self.img_size[0], self.img_size[1]), interpolation = cv2.INTER_NEAREST)
         lbl = lbl.astype(int)
-        lbl = np.clip(lbl, 0, 1)
 
-        img = torch.from_numpy(np.array([img])).float()
-        lbl = torch.from_numpy(lbl).long()
+        img = torch.from_numpy(img).float()
+        lbl = torch.from_numpy(lbl/255).long()
 
         return img, lbl

@@ -2,14 +2,13 @@ import torch
 import numpy as np
 from sklearn.metrics import accuracy_score, roc_auc_score, f1_score, confusion_matrix
 import segmentation_models_pytorch as smp
-from data import LiverLoader, DataLoader
-from args import ATTACK_BATCH_SIZE
+from data import KvasirLoader, DataLoader
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
 def global_attack(data, args, victim_model, threshold):
-    attack_val = LiverLoader(data.victim_attack_paths, attack=True)
+    attack_val = KvasirLoader(data.victim_attack_paths, attack=True)
     attack_val_dataloader = DataLoader(attack_val, batch_size=1)
 
     criterion = smp.losses.DiceLoss('binary')

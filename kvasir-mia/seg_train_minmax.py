@@ -75,14 +75,14 @@ def train_segmentation_model_min_max(
 ):
 
     # adversarial regularisation done with Type-II attack
-    ATTACK_INPUT_CHANNELS = 38
+    ATTACK_INPUT_CHANNELS = 2
 
     reg_model = models.resnet34(weights=models.ResNet34_Weights.DEFAULT)
     reg_model.conv1 = nn.Sequential(nn.Conv2d(ATTACK_INPUT_CHANNELS, 3, 1), reg_model.conv1,)
     reg_model.fc = nn.Sequential(nn.Linear(512, 1), nn.Sigmoid())
     reg_model.to(device)
 
-    seg_model = smp.Unet(encoder_name=args.victim, in_channels=3, classes=19).to(device)
+    seg_model = smp.Unet(encoder_name=args.victim, in_channels=3, classes=1).to(device)
 
     criterion = smp.losses.DiceLoss('binary')
     opt = torch.optim.NAdam(seg_model.parameters(), lr=seg_lr, betas=(0.9, 0.999))

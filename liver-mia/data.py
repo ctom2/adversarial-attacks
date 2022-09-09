@@ -48,7 +48,7 @@ class LiverDataset:
         self.shadow_val_paths = {'imgs': shadow_data['imgs'][train_size:train_size+500], 'lbls': shadow_data['lbls'][train_size:train_size+500]}
 
         # making datasets for training the attack model
-        # hardcoded for 1000 samples (500/500 in/out splitt)
+        # hardcoded for 1000 samples (500/500 in/out split)
         self.victim_attack_paths = {
             'imgs': np.concatenate([self.victim_train_paths['imgs'][:500], self.victim_val_paths['imgs']]),
             'lbls': np.concatenate([self.victim_train_paths['lbls'][:500], self.victim_val_paths['lbls']]),

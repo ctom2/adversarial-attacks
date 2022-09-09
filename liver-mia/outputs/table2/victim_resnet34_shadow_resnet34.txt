@@ -1,0 +1,436 @@
+!python3 main.py --victim "resnet34" --shadow "resnet34" --attacktype 2 --defensetype 1 --trainsize 500
+
+Victim encoder: resnet34
+Shadow encoder: resnet34
+Attack type: Type-II
+Defense type: No defense
+Train size: 500
+
+************************
+Victim train paths: 500
+Shadow train paths: 500
+Attack train paths: 1000
+Attack val paths: 1000
+************************
+ ** TRAINING VICTIM MODEL **
+ -- Staring training epoch 1 --
+Training loss: 0.6944
+Validation loss: 0.6074
+ -- Staring training epoch 2 --
+Training loss: 0.5193
+ -- Staring training epoch 3 --
+Training loss: 0.394
+ -- Staring training epoch 4 --
+Training loss: 0.2958
+ -- Staring training epoch 5 --
+Training loss: 0.2179
+ -- Staring training epoch 6 --
+Training loss: 0.1773
+ -- Staring training epoch 7 --
+Training loss: 0.1363
+ -- Staring training epoch 8 --
+Training loss: 0.1092
+ -- Staring training epoch 9 --
+Training loss: 0.0895
+ -- Staring training epoch 10 --
+Training loss: 0.0758
+ -- Staring training epoch 11 --
+Training loss: 0.0661
+Validation loss: 0.0724
+ -- Staring training epoch 12 --
+Training loss: 0.0577
+ -- Staring training epoch 13 --
+Training loss: 0.0517
+ -- Staring training epoch 14 --
+Training loss: 0.0477
+ -- Staring training epoch 15 --
+Training loss: 0.0425
+ -- Staring training epoch 16 --
+Training loss: 0.0394
+ -- Staring training epoch 17 --
+Training loss: 0.036
+ -- Staring training epoch 18 --
+Training loss: 0.0332
+ -- Staring training epoch 19 --
+Training loss: 0.0309
+ -- Staring training epoch 20 --
+Training loss: 0.0305
+ -- Staring training epoch 21 --
+Training loss: 0.0279
+Validation loss: 0.0431
+ -- Staring training epoch 22 --
+Training loss: 0.0267
+ -- Staring training epoch 23 --
+Training loss: 0.0258
+ -- Staring training epoch 24 --
+Training loss: 0.0254
+ -- Staring training epoch 25 --
+Training loss: 0.0244
+ -- Staring training epoch 26 --
+Training loss: 0.0225
+ -- Staring training epoch 27 --
+Training loss: 0.0216
+ -- Staring training epoch 28 --
+Training loss: 0.0205
+ -- Staring training epoch 29 --
+Training loss: 0.0195
+ -- Staring training epoch 30 --
+Training loss: 0.0193
+ -- Staring training epoch 31 --
+Training loss: 0.0197
+Validation loss: 0.6129
+ -- Staring training epoch 32 --
+Training loss: 0.0594
+ -- Staring training epoch 33 --
+Training loss: 0.0306
+ -- Staring training epoch 34 --
+Training loss: 0.0268
+ -- Staring training epoch 35 --
+Training loss: 0.0226
+ -- Staring training epoch 36 --
+Training loss: 0.0216
+ -- Staring training epoch 37 --
+Training loss: 0.0194
+ -- Staring training epoch 38 --
+Training loss: 0.0183
+ -- Staring training epoch 39 --
+Training loss: 0.0167
+ -- Staring training epoch 40 --
+Training loss: 0.0178
+ -- Staring training epoch 41 --
+Training loss: 0.0173
+Validation loss: 0.0503
+ -- Staring training epoch 42 --
+Training loss: 0.0163
+ -- Staring training epoch 43 --
+Training loss: 0.0153
+ -- Staring training epoch 44 --
+Training loss: 0.0143
+ -- Staring training epoch 45 --
+Training loss: 0.0138
+ -- Staring training epoch 46 --
+Training loss: 0.0136
+ -- Staring training epoch 47 --
+Training loss: 0.0134
+ -- Staring training epoch 48 --
+Training loss: 0.0128
+ -- Staring training epoch 49 --
+Training loss: 0.0126
+ -- Staring training epoch 50 --
+Training loss: 0.0131
+ -- Staring training epoch 51 --
+Training loss: 0.0136
+Validation loss: 0.0439
+ -- Staring training epoch 52 --
+Training loss: 0.0128
+ -- Staring training epoch 53 --
+Training loss: 0.0121
+ -- Staring training epoch 54 --
+Training loss: 0.0121
+ -- Staring training epoch 55 --
+Training loss: 0.0116
+ -- Staring training epoch 56 --
+Training loss: 0.0114
+ -- Staring training epoch 57 --
+Training loss: 0.0114
+ -- Staring training epoch 58 --
+Training loss: 0.011
+ -- Staring training epoch 59 --
+Training loss: 0.011
+ -- Staring training epoch 60 --
+Training loss: 0.0109
+ -- Staring training epoch 61 --
+Training loss: 0.0108
+Validation loss: 0.0334
+ -- Staring training epoch 62 --
+Training loss: 0.0104
+ -- Staring training epoch 63 --
+Training loss: 0.0104
+ -- Staring training epoch 64 --
+Training loss: 0.0101
+ -- Staring training epoch 65 --
+Training loss: 0.0099
+ -- Staring training epoch 66 --
+Training loss: 0.0097
+ -- Staring training epoch 67 --
+Training loss: 0.0099
+ -- Staring training epoch 68 --
+Training loss: 0.0099
+ -- Staring training epoch 69 --
+Training loss: 0.0094
+ -- Staring training epoch 70 --
+Training loss: 0.0097
+Validation loss: 0.0337
+ ** TRAINING SHADOW MODEL **
+ -- Staring training epoch 1 --
+Training loss: 0.7096
+Validation loss: 0.5981
+ -- Staring training epoch 2 --
+Training loss: 0.5556
+ -- Staring training epoch 3 --
+Training loss: 0.4624
+ -- Staring training epoch 4 --
+Training loss: 0.3665
+ -- Staring training epoch 5 --
+Training loss: 0.303
+ -- Staring training epoch 6 --
+Training loss: 0.251
+ -- Staring training epoch 7 --
+Training loss: 0.2
+ -- Staring training epoch 8 --
+Training loss: 0.1665
+ -- Staring training epoch 9 --
+Training loss: 0.1441
+ -- Staring training epoch 10 --
+Training loss: 0.1189
+ -- Staring training epoch 11 --
+Training loss: 0.1044
+Validation loss: 0.0952
+ -- Staring training epoch 12 --
+Training loss: 0.0916
+ -- Staring training epoch 13 --
+Training loss: 0.079
+ -- Staring training epoch 14 --
+Training loss: 0.0662
+ -- Staring training epoch 15 --
+Training loss: 0.0608
+ -- Staring training epoch 16 --
+Training loss: 0.0589
+ -- Staring training epoch 17 --
+Training loss: 0.0527
+ -- Staring training epoch 18 --
+Training loss: 0.0489
+ -- Staring training epoch 19 --
+Training loss: 0.0476
+ -- Staring training epoch 20 --
+Training loss: 0.0409
+ -- Staring training epoch 21 --
+Training loss: 0.042
+Validation loss: 0.0476
+ -- Staring training epoch 22 --
+Training loss: 0.039
+ -- Staring training epoch 23 --
+Training loss: 0.0671
+ -- Staring training epoch 24 --
+Training loss: 0.0393
+ -- Staring training epoch 25 --
+Training loss: 0.0345
+ -- Staring training epoch 26 --
+Training loss: 0.033
+ -- Staring training epoch 27 --
+Training loss: 0.029
+ -- Staring training epoch 28 --
+Training loss: 0.0277
+ -- Staring training epoch 29 --
+Training loss: 0.0258
+ -- Staring training epoch 30 --
+Training loss: 0.0253
+ -- Staring training epoch 31 --
+Training loss: 0.0239
+Validation loss: 0.0377
+ -- Staring training epoch 32 --
+Training loss: 0.0241
+ -- Staring training epoch 33 --
+Training loss: 0.0223
+ -- Staring training epoch 34 --
+Training loss: 0.0215
+ -- Staring training epoch 35 --
+Training loss: 0.0204
+ -- Staring training epoch 36 --
+Training loss: 0.0195
+ -- Staring training epoch 37 --
+Training loss: 0.0191
+ -- Staring training epoch 38 --
+Training loss: 0.0185
+ -- Staring training epoch 39 --
+Training loss: 0.018
+ -- Staring training epoch 40 --
+Training loss: 0.0178
+ -- Staring training epoch 41 --
+Training loss: 0.0168
+Validation loss: 0.0336
+ -- Staring training epoch 42 --
+Training loss: 0.0162
+ -- Staring training epoch 43 --
+Training loss: 0.0157
+ -- Staring training epoch 44 --
+Training loss: 0.0158
+ -- Staring training epoch 45 --
+Training loss: 0.0154
+ -- Staring training epoch 46 --
+Training loss: 0.0151
+ -- Staring training epoch 47 --
+Training loss: 0.0153
+ -- Staring training epoch 48 --
+Training loss: 0.0146
+ -- Staring training epoch 49 --
+Training loss: 0.0143
+ -- Staring training epoch 50 --
+Training loss: 0.0138
+ -- Staring training epoch 51 --
+Training loss: 0.0131
+Validation loss: 0.0315
+ -- Staring training epoch 52 --
+Training loss: 0.0131
+ -- Staring training epoch 53 --
+Training loss: 0.0128
+ -- Staring training epoch 54 --
+Training loss: 0.0134
+ -- Staring training epoch 55 --
+Training loss: 0.0133
+ -- Staring training epoch 56 --
+Training loss: 0.0124
+ -- Staring training epoch 57 --
+Training loss: 0.0121
+ -- Staring training epoch 58 --
+Training loss: 0.0124
+ -- Staring training epoch 59 --
+Training loss: 0.012
+ -- Staring training epoch 60 --
+Training loss: 0.0114
+ -- Staring training epoch 61 --
+Training loss: 0.0113
+Validation loss: 0.031
+ -- Staring training epoch 62 --
+Training loss: 0.0113
+ -- Staring training epoch 63 --
+Training loss: 0.0108
+ -- Staring training epoch 64 --
+Training loss: 0.0111
+ -- Staring training epoch 65 --
+Training loss: 0.0111
+ -- Staring training epoch 66 --
+Training loss: 0.0105
+ -- Staring training epoch 67 --
+Training loss: 0.0106
+ -- Staring training epoch 68 --
+Training loss: 0.0103
+ -- Staring training epoch 69 --
+Training loss: 0.0107
+ -- Staring training epoch 70 --
+Training loss: 0.0102
+Validation loss: 0.0312
+ ** MEMBERSHIP INFERENCE ATTACK **
+ -- Staring training epoch 1 --
+Training accuracy: 0.606 , AUC: 0.606 , F1-score: 0.6219
+Validation accuracy: 0.504 , AUC: 0.504 , F1-score: 0.0198
+TN: 499, FP: 1, FN: 495, TP: 5
+ -- Staring training epoch 2 --
+Training accuracy: 0.764 , AUC: 0.764 , F1-score: 0.7631
+Validation accuracy: 0.518 , AUC: 0.518 , F1-score: 0.0837
+TN: 496, FP: 4, FN: 478, TP: 22
+ -- Staring training epoch 3 --
+Training accuracy: 0.818 , AUC: 0.818 , F1-score: 0.8202
+Validation accuracy: 0.916 , AUC: 0.916 , F1-score: 0.9173
+TN: 450, FP: 50, FN: 34, TP: 466
+ -- Staring training epoch 4 --
+Training accuracy: 0.875 , AUC: 0.875 , F1-score: 0.8749
+Validation accuracy: 0.515 , AUC: 0.515 , F1-score: 0.0691
+TN: 497, FP: 3, FN: 482, TP: 18
+ -- Staring training epoch 5 --
+Training accuracy: 0.88 , AUC: 0.88 , F1-score: 0.8788
+Validation accuracy: 0.756 , AUC: 0.756 , F1-score: 0.6872
+TN: 488, FP: 12, FN: 232, TP: 268
+ -- Staring training epoch 6 --
+Training accuracy: 0.908 , AUC: 0.908 , F1-score: 0.9071
+Validation accuracy: 0.672 , AUC: 0.672 , F1-score: 0.5314
+TN: 486, FP: 14, FN: 314, TP: 186
+ -- Staring training epoch 7 --
+Training accuracy: 0.931 , AUC: 0.931 , F1-score: 0.9313
+Validation accuracy: 0.537 , AUC: 0.537 , F1-score: 0.1536
+TN: 495, FP: 5, FN: 458, TP: 42
+ -- Staring training epoch 8 --
+Training accuracy: 0.934 , AUC: 0.934 , F1-score: 0.9349
+Validation accuracy: 0.526 , AUC: 0.526 , F1-score: 0.1255
+TN: 492, FP: 8, FN: 466, TP: 34
+ -- Staring training epoch 9 --
+Training accuracy: 0.969 , AUC: 0.969 , F1-score: 0.9692
+Validation accuracy: 0.674 , AUC: 0.674 , F1-score: 0.522
+TN: 496, FP: 4, FN: 322, TP: 178
+ -- Staring training epoch 10 --
+Training accuracy: 0.983 , AUC: 0.983 , F1-score: 0.983
+Validation accuracy: 0.742 , AUC: 0.742 , F1-score: 0.6658
+TN: 485, FP: 15, FN: 243, TP: 257
+ -- Staring training epoch 11 --
+Training accuracy: 0.972 , AUC: 0.972 , F1-score: 0.9719
+Validation accuracy: 0.532 , AUC: 0.532 , F1-score: 0.1203
+TN: 500, FP: 0, FN: 468, TP: 32
+ -- Staring training epoch 12 --
+Training accuracy: 0.966 , AUC: 0.966 , F1-score: 0.966
+Validation accuracy: 0.555 , AUC: 0.555 , F1-score: 0.2068
+TN: 497, FP: 3, FN: 442, TP: 58
+ -- Staring training epoch 13 --
+Training accuracy: 0.971 , AUC: 0.971 , F1-score: 0.9709
+Validation accuracy: 0.618 , AUC: 0.618 , F1-score: 0.3937
+TN: 494, FP: 6, FN: 376, TP: 124
+ -- Staring training epoch 14 --
+Training accuracy: 0.963 , AUC: 0.963 , F1-score: 0.9632
+Validation accuracy: 0.834 , AUC: 0.834 , F1-score: 0.8574
+TN: 335, FP: 165, FN: 1, TP: 499
+ -- Staring training epoch 15 --
+Training accuracy: 0.993 , AUC: 0.993 , F1-score: 0.993
+Validation accuracy: 0.733 , AUC: 0.733 , F1-score: 0.6426
+TN: 493, FP: 7, FN: 260, TP: 240
+ -- Staring training epoch 16 --
+Training accuracy: 0.993 , AUC: 0.993 , F1-score: 0.993
+Validation accuracy: 0.591 , AUC: 0.591 , F1-score: 0.3195
+TN: 495, FP: 5, FN: 404, TP: 96
+ -- Staring training epoch 17 --
+Training accuracy: 0.974 , AUC: 0.974 , F1-score: 0.9741
+Validation accuracy: 0.738 , AUC: 0.738 , F1-score: 0.6507
+TN: 494, FP: 6, FN: 256, TP: 244
+ -- Staring training epoch 18 --
+Training accuracy: 0.993 , AUC: 0.993 , F1-score: 0.993
+Validation accuracy: 0.792 , AUC: 0.792 , F1-score: 0.7463
+TN: 486, FP: 14, FN: 194, TP: 306
+ -- Staring training epoch 19 --
+Training accuracy: 0.991 , AUC: 0.991 , F1-score: 0.991
+Validation accuracy: 0.751 , AUC: 0.751 , F1-score: 0.6762
+TN: 491, FP: 9, FN: 240, TP: 260
+ -- Staring training epoch 20 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+Validation accuracy: 0.719 , AUC: 0.719 , F1-score: 0.6187
+TN: 491, FP: 9, FN: 272, TP: 228
+ -- Staring training epoch 21 --
+Training accuracy: 0.973 , AUC: 0.973 , F1-score: 0.973
+Validation accuracy: 0.895 , AUC: 0.895 , F1-score: 0.8865
+TN: 485, FP: 15, FN: 90, TP: 410
+ -- Staring training epoch 22 --
+Training accuracy: 0.983 , AUC: 0.983 , F1-score: 0.983
+Validation accuracy: 0.884 , AUC: 0.884 , F1-score: 0.8711
+TN: 492, FP: 8, FN: 108, TP: 392
+ -- Staring training epoch 23 --
+Training accuracy: 0.995 , AUC: 0.995 , F1-score: 0.995
+Validation accuracy: 0.82 , AUC: 0.82 , F1-score: 0.7842
+TN: 493, FP: 7, FN: 173, TP: 327
+ -- Staring training epoch 24 --
+Training accuracy: 0.992 , AUC: 0.992 , F1-score: 0.992
+Validation accuracy: 0.849 , AUC: 0.849 , F1-score: 0.8677
+TN: 354, FP: 146, FN: 5, TP: 495
+ -- Staring training epoch 25 --
+Training accuracy: 0.974 , AUC: 0.974 , F1-score: 0.9742
+Validation accuracy: 0.878 , AUC: 0.878 , F1-score: 0.865
+TN: 487, FP: 13, FN: 109, TP: 391
+ -- Staring training epoch 26 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+Validation accuracy: 0.807 , AUC: 0.807 , F1-score: 0.7711
+TN: 482, FP: 18, FN: 175, TP: 325
+ -- Staring training epoch 27 --
+Training accuracy: 0.993 , AUC: 0.993 , F1-score: 0.993
+Validation accuracy: 0.921 , AUC: 0.921 , F1-score: 0.9162
+TN: 489, FP: 11, FN: 68, TP: 432
+ -- Staring training epoch 28 --
+Training accuracy: 1.0 , AUC: 1.0 , F1-score: 1.0
+Validation accuracy: 0.85 , AUC: 0.85 , F1-score: 0.8272
+TN: 491, FP: 9, FN: 141, TP: 359
+ -- Staring training epoch 29 --
+Training accuracy: 0.986 , AUC: 0.986 , F1-score: 0.986
+Validation accuracy: 0.718 , AUC: 0.718 , F1-score: 0.6116
+TN: 496, FP: 4, FN: 278, TP: 222
+ -- Staring training epoch 30 --
+Training accuracy: 0.994 , AUC: 0.994 , F1-score: 0.994
+Validation accuracy: 0.857 , AUC: 0.857 , F1-score: 0.8369
+TN: 490, FP: 10, FN: 133, TP: 367
+
+
+Last 10 epochs testing averages: accuracy: 0.8479, AUC: 0.8479, F1-score: 0.8238

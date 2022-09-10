@@ -1,6 +1,7 @@
 import torch
 import opacus
 import segmentation_models_pytorch as smp
+import numpy as np
 from seg_train import validate_segmentation_model
 from args import SEG_EPOCHS, DELTA, EPSILON, MAX_GRAD_NORM
 
@@ -13,7 +14,6 @@ def get_dp_model(encoder, dataloader, lr):
     model = opacus.validators.ModuleValidator.fix(model).to(device)
     print('Opacus validation:', opacus.validators.ModuleValidator.validate(model, strict=True))
 
-    criterion = smp.losses.DiceLoss('binary')
     opt = torch.optim.NAdam(model.parameters(), lr=lr, betas=(0.9, 0.999))
 
     privacy_engine = opacus.PrivacyEngine()
@@ -34,6 +34,8 @@ def get_dp_model(encoder, dataloader, lr):
 def train_segmentation_model_dp(encoder, dataloader, val_dataloader, epochs, lr):
 
     model, opt, dataloader = get_dp_model(encoder, dataloader, lr)
+
+    criterion = smp.losses.DiceLoss('binary')
 
     for epoch in range(epochs):
         model.train()

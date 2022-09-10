@@ -43,6 +43,9 @@ def train_segmentation_model_dp(encoder, dataloader, val_dataloader, epochs, lr)
         train_loss_data = []
 
         for img, lbl in dataloader:
+
+            if img.shape[0] == 0: continue
+
             img, lbl = img.to(device), lbl.to(device)
 
             opt.zero_grad()

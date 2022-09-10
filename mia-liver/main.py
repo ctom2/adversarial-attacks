@@ -47,7 +47,7 @@ if __name__ == "__main__":
     print("Shadow encoder: {}".format(args.shadow))
     attacks = ['Type-I', 'Type-II', 'Global-loss']
     print("Attack type: {}".format(attacks[args.attacktype - 1]))
-    defenses = ['No defense', 'Argmax', 'Crop-training', 'Mix-up', 'Min-max', 'DP']
+    defenses = ['No defense', 'Argmax', 'Crop-training', 'Mix-up', 'Min-max', 'DP', 'KD']
     print("Defense type: {}".format(defenses[args.defensetype - 1]))
     print("Train size: {}".format(args.trainsize))
     print()

@@ -4,6 +4,7 @@ from seg_train import train_segmentation_model
 from seg_train_crop import train_segmentation_model_crop
 from seg_train_mix import train_segmentation_model_mix
 from seg_train_minmax import train_segmentation_model_min_max
+from seg_train_dp import train_segmentation_model_dp
 from attack_train import train_attack_model
 
 
@@ -33,8 +34,9 @@ def get_victim(data, args):
             reg_train_dataloader=reg_val_dataloader, reg_epochs=REG_EPOCHS, reg_lr=ATTACK_LR,
         )
     # DP
-    # elif args.defensetype == 6:
-    #     return
+    elif args.defensetype == 6:
+        victim_model = train_segmentation_model_dp(args.victim, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
+        
 
     return victim_model
 

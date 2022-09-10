@@ -1,7 +1,6 @@
 import argparse
 from data import LiverDataset
 from utils_train import get_victim, get_shadow, get_attack
-from global_attack import global_attack 
 
 
 def main(args):
@@ -29,7 +28,6 @@ if __name__ == "__main__":
     parser.add_argument("--shadow", type=str, default='resnet34')
     # 1 -- Type-I attack, 
     # 2 -- Type-II attack,
-    # 3 -- Global loss-based attack
     parser.add_argument("--attacktype", type=int, default=2)
     # same for victim and shadow models, [500 - 2000]
     parser.add_argument("--trainsize", type=int, default=500)

@@ -43,7 +43,7 @@ def get_victim(data, args):
 
         protected_dataloader = make_protected_training_data(args, data, unprotected_model, threshold)
 
-        victim_model = train_protected_model(args.victim, unprotected_model, protected_dataloader, val_dataloader, SEG_EPOCHS, SEG_LR)
+        victim_model = train_protected_model(args.victim, unprotected_model, protected_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
 
 
     return victim_model

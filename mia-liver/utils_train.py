@@ -39,9 +39,8 @@ def get_victim(data, args):
         victim_model = train_segmentation_model_dp(args.trainsize, args.victim, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
     # knowledge distillation
     elif args.defensetype == 7:
-        unprotected_model = train_segmentation_model(args.victim, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
+        unprotected_model, threshold = train_segmentation_model(args.victim, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
 
-        threshold = unprotected_model[1] # validation loss
         protected_dataloader = make_protected_training_data(args, data, unprotected_model, threshold)
 
         victim_model = train_protected_model(args.victim, unprotected_model, protected_dataloader, val_dataloader, SEG_EPOCHS, SEG_LR)

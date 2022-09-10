@@ -5,6 +5,7 @@ from seg_train_crop import train_segmentation_model_crop
 from seg_train_mix import train_segmentation_model_mix
 from seg_train_minmax import train_segmentation_model_min_max
 from seg_train_dp import train_segmentation_model_dp
+from seg_train_kd import get_reference_idxs, train_protected_model
 from attack_train import train_attack_model
 
 
@@ -35,8 +36,16 @@ def get_victim(data, args):
         )
     # DP
     elif args.defensetype == 6:
-        victim_model = train_segmentation_model_dp(args.victim, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
-        
+        victim_model = train_segmentation_model_dp(args.trainsize, args.victim, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
+    # knowledge distillation
+    elif args.defensetype == 7:
+        unprotected_model = train_segmentation_model(args.victim, victim_train_dataloader, victim_val_dataloader, SEG_EPOCHS, SEG_LR)
+
+        threshold = unprotected_model[1] # validation loss
+        protected_dataloader = make_protected_training_data(args, data, unprotected_model, threshold)
+
+        victim_model = train_protected_model(args.victim, unprotected_model, protected_dataloader, val_dataloader, SEG_EPOCHS, SEG_LR)
+
 
     return victim_model
 

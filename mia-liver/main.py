@@ -37,6 +37,7 @@ if __name__ == "__main__":
     # 4 -- mix-up,
     # 5 -- min-max,
     # 6 -- DP
+    # 7 -- knowledge distillation
     parser.add_argument("--defensetype", type=int, default=0)
     # same for victim and shadow models, [500 - 2000]
     parser.add_argument("--trainsize", type=int, default=500)

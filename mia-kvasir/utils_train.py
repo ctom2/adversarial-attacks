@@ -32,9 +32,7 @@ def get_victim(data, args):
             seg_train_dataloader=victim_train_dataloader, seg_val_dataloader=victim_val_dataloader, seg_epochs=SEG_EPOCHS, seg_lr=SEG_LR,
             reg_train_dataloader=reg_val_dataloader, reg_epochs=REG_EPOCHS, reg_lr=ATTACK_LR,
         )
-    # DP
-    # elif args.defensetype == 6:
-    #     return
+
 
     return victim_model
 

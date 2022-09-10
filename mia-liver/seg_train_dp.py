@@ -3,18 +3,18 @@ import opacus
 import segmentation_models_pytorch as smp
 import numpy as np
 from seg_train import validate_segmentation_model
-from args import SEG_EPOCHS, DELTA, EPSILON, MAX_GRAD_NORM
+from args import SEG_EPOCHS, EPSILON, MAX_GRAD_NORM
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
-def get_dp_model(encoder, dataloader, lr):
+def get_dp_model(encoder, dataloader, lr, delta_inv):
 
     model = smp.Unet(encoder_name=encoder, in_channels=1, classes=1).to(device)
     model = opacus.validators.ModuleValidator.fix(model).to(device)
     print('Opacus validation:', opacus.validators.ModuleValidator.validate(model, strict=True))
 
-    opt = torch.optim.NAdam(model.parameters(), lr=3*lr, betas=(0.9, 0.999))
+    opt = torch.optim.NAdam(model.parameters(), lr=4*lr, betas=(0.9, 0.999))
 
     privacy_engine = opacus.PrivacyEngine()
 
@@ -22,7 +22,7 @@ def get_dp_model(encoder, dataloader, lr):
         module=model,
         optimizer=opt,
         data_loader=dataloader,
-        target_delta=DELTA,
+        target_delta=1/delta_inv,
         target_epsilon=EPSILON, 
         epochs=SEG_EPOCHS,
         max_grad_norm=MAX_GRAD_NORM,
@@ -31,9 +31,9 @@ def get_dp_model(encoder, dataloader, lr):
     return model, dp_opt, dp_dataloader
 
 
-def train_segmentation_model_dp(encoder, dataloader, val_dataloader, epochs, lr):
+def train_segmentation_model_dp(delta_inv, encoder, dataloader, val_dataloader, epochs, lr):
 
-    model, opt, dataloader = get_dp_model(encoder, dataloader, lr)
+    model, opt, dataloader = get_dp_model(encoder, dataloader, lr, delta_inv)
 
     criterion = smp.losses.DiceLoss('binary')
 

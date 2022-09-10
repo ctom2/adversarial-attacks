@@ -21,7 +21,7 @@ def get_liver_paths():
 
 
 class LiverDataset:
-    def __init__(self, train_size):
+    def __init__(self, train_size, kd_defense=False):
         # get the paths to images and labels (masks)
         liver_paths = get_liver_paths()
 
@@ -46,6 +46,15 @@ class LiverDataset:
 
         self.shadow_train_paths = {'imgs': shadow_data['imgs'][:train_size], 'lbls': shadow_data['lbls'][:train_size]}
         self.shadow_val_paths = {'imgs': shadow_data['imgs'][train_size:train_size+500], 'lbls': shadow_data['lbls'][train_size:train_size+500]}
+
+
+        if kd_defense:
+            # making reference dataset (for knowledge distillation defense) -> there are hardcoded 1000 images in the set
+            self.pre_reference_paths = {
+                'imgs': victim_data['imgs'][train_size+500:train_size+1500], 
+                'lbls': victim_data['lbls'][train_size+500:train_size+1500], 
+            }
+
 
         # making datasets for training the attack model
         # hardcoded for 1000 samples (500/500 in/out split)

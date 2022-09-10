@@ -14,7 +14,7 @@ def get_dp_model(encoder, dataloader, lr):
     model = opacus.validators.ModuleValidator.fix(model).to(device)
     print('Opacus validation:', opacus.validators.ModuleValidator.validate(model, strict=True))
 
-    opt = torch.optim.NAdam(model.parameters(), lr=lr, betas=(0.9, 0.999))
+    opt = torch.optim.NAdam(model.parameters(), lr=3*lr, betas=(0.9, 0.999))
 
     privacy_engine = opacus.PrivacyEngine()
 

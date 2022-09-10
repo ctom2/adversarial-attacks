@@ -5,7 +5,7 @@ from seg_train_crop import train_segmentation_model_crop
 from seg_train_mix import train_segmentation_model_mix
 from seg_train_minmax import train_segmentation_model_min_max
 from seg_train_dp import train_segmentation_model_dp
-from seg_train_kd import get_reference_idxs, train_protected_model
+from seg_train_kd import get_reference_idxs, train_protected_model, make_protected_training_data
 from attack_train import train_attack_model
 
 

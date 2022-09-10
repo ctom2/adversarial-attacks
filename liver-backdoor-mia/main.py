@@ -14,10 +14,7 @@ def main(args):
     shadow_model, shadow_threshold = get_shadow(data, args)
 
     print(" ** MEMBERSHIP INFERENCE ATTACK **")
-    if args.attacktype == 3:
-        global_attack(data, args, victim_model, shadow_threshold)
-    else:
-        _ = get_attack(data, args, victim_model, shadow_model)
+    _ = get_attack(data, args, victim_model, shadow_model)
 
 
 if __name__ == "__main__":

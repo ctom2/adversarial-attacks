@@ -79,6 +79,7 @@ def validate_segmentation_model(model, dataloader, backdoor_test=False):
     val_loss_data = []
 
     mask_sum = 0
+    lbl_sum = 0
     
     model.eval()
     with torch.no_grad():
@@ -91,6 +92,7 @@ def validate_segmentation_model(model, dataloader, backdoor_test=False):
 
             pred_clipped = torch.clip(pred, min=0., max=1.)
             mask_sum += torch.sum(pred_clipped)
+            lbl_sum += torch.sum(lbl)
 
     val_loss = np.sum(np.array(val_loss_data))/len(val_loss_data)
 
@@ -98,9 +100,11 @@ def validate_segmentation_model(model, dataloader, backdoor_test=False):
 
     if backdoor_test:
         print('Backdoored validation loss:', round(val_loss,4))
-        print('  Average musk sum:', mask_sum.item()/total)
+        print('  Average output mask sum:', mask_sum.item()/total)
+        print('  Average true musk sum:', lbl_sum.item()/total)
     else:
         print('Non-backdoored validation loss:', round(val_loss,4))
-        print('  Average musk sum:', mask_sum.item()/total)
+        print('  Average output mask sum:', mask_sum.item()/total)
+        print('  Average true musk sum:', lbl_sum.item()/total)
 
     return val_loss

@@ -56,10 +56,11 @@ def train_segmentation_model_dp(delta_inv, encoder, dataloader, val_dataloader, 
 
             train_loss_data.append(loss.item())
 
-        print('Training loss:', round(np.sum(np.array(train_loss_data))/len(train_loss_data),4))
+        train_loss = np.sum(np.array(train_loss_data))/len(train_loss_data)
+        print('Training loss:', round(train_loss,4))
 
         if epoch % 10 == 0: validate_segmentation_model(model, val_dataloader)
 
-    val_loss = validate_segmentation_model(model, val_dataloader)
+    validate_segmentation_model(model, val_dataloader)
 
-    return model, val_loss
+    return model, train_loss

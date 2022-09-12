@@ -5,7 +5,7 @@ import segmentation_models_pytorch as smp
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
-def train_segmentation_model(encoder, dataloader, val_dataloader, epochs, lr):
+def train_segmentation_model(encoder, dataloader, val_dataloader, epochs, lr, return_val_loss=False):
 
     model = smp.Unet(encoder_name=encoder, in_channels=1, classes=1).to(device)
 
@@ -33,7 +33,10 @@ def train_segmentation_model(encoder, dataloader, val_dataloader, epochs, lr):
 
         if epoch % 10 == 0: validate_segmentation_model(model, val_dataloader)
 
-    validate_segmentation_model(model, val_dataloader)
+    val_loss = validate_segmentation_model(model, val_dataloader)
+
+    if return_val_loss:
+        return model, train_loss, val_loss
 
     return model, train_loss
 

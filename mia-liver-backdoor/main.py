@@ -14,7 +14,10 @@ def main(args):
     shadow_model, shadow_threshold = get_shadow(data, args)
 
     print(" ** MEMBERSHIP INFERENCE ATTACK **")
-    _ = get_attack(data, args, victim_model, shadow_model)
+    if args.attacktype == 3:
+        global_attack(data, args, victim_model, shadow_threshold)
+    else:
+        _ = get_attack(data, args, victim_model, shadow_model)
 
 
 if __name__ == "__main__":
@@ -25,6 +28,7 @@ if __name__ == "__main__":
     parser.add_argument("--shadow", type=str, default='resnet34')
     # 1 -- Type-I attack, 
     # 2 -- Type-II attack,
+    # 3 -- Global loss-based attack
     parser.add_argument("--attacktype", type=int, default=2)
     # same for victim and shadow models, [500 - 2000]
     parser.add_argument("--trainsize", type=int, default=500)
@@ -34,8 +38,8 @@ if __name__ == "__main__":
     parser.add_argument("--triggersize", type=int, default=1)
     # value for trigger [0-255]
     parser.add_argument("--triggerval", type=int, default=1)
-    # size of poissoned dataset [0-1]
-    parser.add_argument("--poisson", type=float, default=0.1)
+    # size of poisoned dataset [0-1]
+    parser.add_argument("--poison", type=float, default=0.1)
     args = parser.parse_args()
 
     print("Victim encoder: {}".format(args.victim))
@@ -48,7 +52,7 @@ if __name__ == "__main__":
     print("    Trigger type: {}".format(args.triggertype))
     print("    Trigger size: {}".format(args.triggersize))
     print("    Trigger val: {}".format(args.triggerval))
-    print("    Posioned: {}".format(args.poisson))
+    print("    Posioned: {}".format(args.poison))
     print()
 
     main(args)

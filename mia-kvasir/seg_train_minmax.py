@@ -125,7 +125,8 @@ def train_segmentation_model_min_max(
 
             train_loss_data.append(loss.item())
 
-        print('Training loss:', round(np.sum(np.array(train_loss_data))/len(train_loss_data),4))
+        train_loss = np.sum(np.array(train_loss_data))/len(train_loss_data)
+        print('Training loss:', round(train_loss,4))
         print('Seg. model loss: {}'.format(round(np.sum(np.array(seg_loss_data))/len(seg_loss_data),4)))
         print('Reg. model accuracy: {}'.format(round(np.sum(np.array(reg_loss_data))/len(reg_loss_data),4)))
 
@@ -134,4 +135,4 @@ def train_segmentation_model_min_max(
 
     val_loss = validate_segmentation_model(seg_model, seg_val_dataloader)
 
-    return seg_model, val_loss
+    return seg_model, train_loss

@@ -19,302 +19,302 @@ Opacus validation: []
  -- Staring training epoch 1 --
 /usr/local/lib/python3.7/dist-packages/torch/nn/modules/module.py:1053: UserWarning: Using a non-full backward hook when the forward contains multiple autograd Nodes is deprecated and will be removed in future versions. This hook will be missing some grad_input. Please use register_full_backward_hook to get the documented behavior.
   warnings.warn("Using a non-full backward hook when the forward contains multiple autograd Nodes "
-Training loss: 0.881
-Validation loss: 0.8769
+Training loss: 0.8774
+Validation loss: 0.8703
  -- Staring training epoch 2 --
-Training loss: 0.8725
+Training loss: 0.8627
  -- Staring training epoch 3 --
-Training loss: 0.8725
+Training loss: 0.8382
  -- Staring training epoch 4 --
-Training loss: 0.8705
+Training loss: 0.8232
  -- Staring training epoch 5 --
-Training loss: 0.8684
+Training loss: 0.8146
  -- Staring training epoch 6 --
-Training loss: 0.8613
+Training loss: 0.7812
  -- Staring training epoch 7 --
-Training loss: 0.8584
+Training loss: 0.7904
  -- Staring training epoch 8 --
-Training loss: 0.8522
+Training loss: 0.7572
  -- Staring training epoch 9 --
-Training loss: 0.8421
+Training loss: 0.7387
  -- Staring training epoch 10 --
-Training loss: 0.838
+Training loss: 0.7086
  -- Staring training epoch 11 --
-Training loss: 0.8333
-Validation loss: 0.8257
+Training loss: 0.7057
+Validation loss: 0.6916
  -- Staring training epoch 12 --
-Training loss: 0.8189
+Training loss: 0.6843
  -- Staring training epoch 13 --
-Training loss: 0.8168
+Training loss: 0.6274
  -- Staring training epoch 14 --
-Training loss: 0.7998
+Training loss: 0.6149
  -- Staring training epoch 15 --
-Training loss: 0.7968
+Training loss: 0.5649
  -- Staring training epoch 16 --
-Training loss: 0.7928
+Training loss: 0.5543
  -- Staring training epoch 17 --
-Training loss: 0.7675
+Training loss: 0.5032
  -- Staring training epoch 18 --
-Training loss: 0.7661
+Training loss: 0.4642
  -- Staring training epoch 19 --
-Training loss: 0.7496
+Training loss: 0.4172
  -- Staring training epoch 20 --
-Training loss: 0.7409
+Training loss: 0.4061
  -- Staring training epoch 21 --
-Training loss: 0.7181
-Validation loss: 0.7117
+Training loss: 0.3668
+Validation loss: 0.3585
  -- Staring training epoch 22 --
-Training loss: 0.7201
+Training loss: 0.3386
  -- Staring training epoch 23 --
-Training loss: 0.6846
+Training loss: 0.3235
  -- Staring training epoch 24 --
-Training loss: 0.6573
+Training loss: 0.2956
  -- Staring training epoch 25 --
-Training loss: 0.6309
+Training loss: 0.3022
  -- Staring training epoch 26 --
-Training loss: 0.6205
+Training loss: 0.3045
  -- Staring training epoch 27 --
-Training loss: 0.5672
+Training loss: 0.2703
  -- Staring training epoch 28 --
-Training loss: 0.5496
+Training loss: 0.2567
  -- Staring training epoch 29 --
-Training loss: 0.5215
+Training loss: 0.2626
  -- Staring training epoch 30 --
-Training loss: 0.4803
+Training loss: 0.2511
  -- Staring training epoch 31 --
-Training loss: 0.4468
-Validation loss: 0.4302
+Training loss: 0.2322
+Validation loss: 0.233
  -- Staring training epoch 32 --
-Training loss: 0.4316
+Training loss: 0.2265
  -- Staring training epoch 33 --
-Training loss: 0.4096
+Training loss: 0.2346
  -- Staring training epoch 34 --
-Training loss: 0.3984
+Training loss: 0.2353
  -- Staring training epoch 35 --
-Training loss: 0.3566
+Training loss: 0.2063
  -- Staring training epoch 36 --
-Training loss: 0.3284
+Training loss: 0.2057
  -- Staring training epoch 37 --
-Training loss: 0.3457
+Training loss: 0.2108
  -- Staring training epoch 38 --
-Training loss: 0.3309
+Training loss: 0.2035
  -- Staring training epoch 39 --
-Training loss: 0.3407
+Training loss: 0.1838
  -- Staring training epoch 40 --
-Training loss: 0.2853
+Training loss: 0.1994
  -- Staring training epoch 41 --
-Training loss: 0.2901
-Validation loss: 0.2741
+Training loss: 0.1914
+Validation loss: 0.1932
  -- Staring training epoch 42 --
-Training loss: 0.2689
+Training loss: 0.1852
  -- Staring training epoch 43 --
-Training loss: 0.2723
+Training loss: 0.2003
  -- Staring training epoch 44 --
-Training loss: 0.2519
+Training loss: 0.1775
  -- Staring training epoch 45 --
-Training loss: 0.2472
+Training loss: 0.188
  -- Staring training epoch 46 --
-Training loss: 0.2433
+Training loss: 0.1878
  -- Staring training epoch 47 --
-Training loss: 0.2407
+Training loss: 0.1775
  -- Staring training epoch 48 --
-Training loss: 0.2311
+Training loss: 0.1907
  -- Staring training epoch 49 --
-Training loss: 0.2166
+Training loss: 0.1696
  -- Staring training epoch 50 --
-Training loss: 0.2156
+Training loss: 0.1656
  -- Staring training epoch 51 --
-Training loss: 0.212
-Validation loss: 0.2091
+Training loss: 0.1764
+Validation loss: 0.1735
  -- Staring training epoch 52 --
-Training loss: 0.2202
+Training loss: 0.1725
  -- Staring training epoch 53 --
-Training loss: 0.2105
+Training loss: 0.169
  -- Staring training epoch 54 --
-Training loss: 0.2022
+Training loss: 0.1687
  -- Staring training epoch 55 --
-Training loss: 0.1943
+Training loss: 0.1625
  -- Staring training epoch 56 --
-Training loss: 0.1824
+Training loss: 0.1638
  -- Staring training epoch 57 --
-Training loss: 0.1983
+Training loss: 0.1617
  -- Staring training epoch 58 --
-Training loss: 0.1962
+Training loss: 0.1642
  -- Staring training epoch 59 --
-Training loss: 0.1889
+Training loss: 0.1726
  -- Staring training epoch 60 --
-Training loss: 0.1881
+Training loss: 0.1655
  -- Staring training epoch 61 --
-Training loss: 0.1934
-Validation loss: 0.1813
+Training loss: 0.1604
+Validation loss: 0.1602
  -- Staring training epoch 62 --
-Training loss: 0.1908
+Training loss: 0.1756
  -- Staring training epoch 63 --
-Training loss: 0.1748
+Training loss: 0.1456
  -- Staring training epoch 64 --
-Training loss: 0.1796
+Training loss: 0.1469
  -- Staring training epoch 65 --
-Training loss: 0.1691
+Training loss: 0.1467
  -- Staring training epoch 66 --
-Training loss: 0.1627
+Training loss: 0.1592
  -- Staring training epoch 67 --
-Training loss: 0.1722
+Training loss: 0.1431
  -- Staring training epoch 68 --
-Training loss: 0.1774
+Training loss: 0.15
  -- Staring training epoch 69 --
-Training loss: 0.1677
+Training loss: 0.1511
  -- Staring training epoch 70 --
-Training loss: 0.1666
-Validation loss: 0.1628
+Training loss: 0.1452
+Validation loss: 0.149
  ** TRAINING SHADOW MODEL **
  -- Staring training epoch 1 --
-Training loss: 0.7023
-Validation loss: 0.6185
+Training loss: 0.6791
+Validation loss: 0.5815
  -- Staring training epoch 2 --
-Training loss: 0.5454
+Training loss: 0.4916
  -- Staring training epoch 3 --
-Training loss: 0.4312
+Training loss: 0.3749
  -- Staring training epoch 4 --
-Training loss: 0.3293
+Training loss: 0.2803
  -- Staring training epoch 5 --
-Training loss: 0.2616
+Training loss: 0.2197
  -- Staring training epoch 6 --
-Training loss: 0.2006
+Training loss: 0.1649
  -- Staring training epoch 7 --
-Training loss: 0.1623
+Training loss: 0.1297
  -- Staring training epoch 8 --
-Training loss: 0.1324
+Training loss: 0.1034
  -- Staring training epoch 9 --
-Training loss: 0.1109
+Training loss: 0.0881
  -- Staring training epoch 10 --
-Training loss: 0.0982
+Training loss: 0.0776
  -- Staring training epoch 11 --
-Training loss: 0.0825
-Validation loss: 0.0876
+Training loss: 0.0652
+Validation loss: 0.0762
  -- Staring training epoch 12 --
-Training loss: 0.0701
+Training loss: 0.0578
  -- Staring training epoch 13 --
-Training loss: 0.0641
+Training loss: 0.0516
  -- Staring training epoch 14 --
-Training loss: 0.057
+Training loss: 0.0459
  -- Staring training epoch 15 --
-Training loss: 0.049
+Training loss: 0.0434
  -- Staring training epoch 16 --
-Training loss: 0.046
+Training loss: 0.0389
  -- Staring training epoch 17 --
-Training loss: 0.0417
- -- Staring training epoch 18 --
-Training loss: 0.0393
- -- Staring training epoch 19 --
 Training loss: 0.0359
+ -- Staring training epoch 18 --
+Training loss: 0.0341
+ -- Staring training epoch 19 --
+Training loss: 0.0306
  -- Staring training epoch 20 --
-Training loss: 0.0332
- -- Staring training epoch 21 --
-Training loss: 0.032
-Validation loss: 0.0473
- -- Staring training epoch 22 --
 Training loss: 0.0297
+ -- Staring training epoch 21 --
+Training loss: 0.0283
+Validation loss: 0.0492
+ -- Staring training epoch 22 --
+Training loss: 0.0266
  -- Staring training epoch 23 --
-Training loss: 0.0275
+Training loss: 0.0249
  -- Staring training epoch 24 --
-Training loss: 0.0262
+Training loss: 0.0248
  -- Staring training epoch 25 --
-Training loss: 0.0252
+Training loss: 0.0246
  -- Staring training epoch 26 --
-Training loss: 0.0241
- -- Staring training epoch 27 --
-Training loss: 0.0235
- -- Staring training epoch 28 --
-Training loss: 0.0222
- -- Staring training epoch 29 --
-Training loss: 0.0208
- -- Staring training epoch 30 --
-Training loss: 0.0216
- -- Staring training epoch 31 --
 Training loss: 0.0227
-Validation loss: 0.6986
- -- Staring training epoch 32 --
-Training loss: 0.0495
- -- Staring training epoch 33 --
-Training loss: 0.0305
- -- Staring training epoch 34 --
-Training loss: 0.0247
- -- Staring training epoch 35 --
-Training loss: 0.0223
- -- Staring training epoch 36 --
-Training loss: 0.0205
- -- Staring training epoch 37 --
-Training loss: 0.0192
- -- Staring training epoch 38 --
+ -- Staring training epoch 27 --
+Training loss: 0.0219
+ -- Staring training epoch 28 --
+Training loss: 0.0207
+ -- Staring training epoch 29 --
+Training loss: 0.02
+ -- Staring training epoch 30 --
 Training loss: 0.0187
- -- Staring training epoch 39 --
-Training loss: 0.0195
- -- Staring training epoch 40 --
-Training loss: 0.0185
- -- Staring training epoch 41 --
-Training loss: 0.0167
-Validation loss: 0.0381
- -- Staring training epoch 42 --
-Training loss: 0.0161
- -- Staring training epoch 43 --
-Training loss: 0.0154
- -- Staring training epoch 44 --
-Training loss: 0.0168
- -- Staring training epoch 45 --
-Training loss: 0.0157
- -- Staring training epoch 46 --
-Training loss: 0.0146
- -- Staring training epoch 47 --
-Training loss: 0.0145
- -- Staring training epoch 48 --
-Training loss: 0.0141
- -- Staring training epoch 49 --
-Training loss: 0.0136
- -- Staring training epoch 50 --
-Training loss: 0.0135
- -- Staring training epoch 51 --
-Training loss: 0.0129
-Validation loss: 0.0358
- -- Staring training epoch 52 --
-Training loss: 0.0124
- -- Staring training epoch 53 --
-Training loss: 0.0125
- -- Staring training epoch 54 --
-Training loss: 0.0121
- -- Staring training epoch 55 --
-Training loss: 0.0119
- -- Staring training epoch 56 --
-Training loss: 0.0153
- -- Staring training epoch 57 --
-Training loss: 0.0414
- -- Staring training epoch 58 --
-Training loss: 0.0264
- -- Staring training epoch 59 --
-Training loss: 0.022
- -- Staring training epoch 60 --
+ -- Staring training epoch 31 --
+Training loss: 0.0186
+Validation loss: 0.0391
+ -- Staring training epoch 32 --
+Training loss: 0.0179
+ -- Staring training epoch 33 --
+Training loss: 0.0173
+ -- Staring training epoch 34 --
+Training loss: 0.0166
+ -- Staring training epoch 35 --
+Training loss: 0.0165
+ -- Staring training epoch 36 --
+Training loss: 0.016
+ -- Staring training epoch 37 --
 Training loss: 0.0149
- -- Staring training epoch 61 --
+ -- Staring training epoch 38 --
+Training loss: 0.0154
+ -- Staring training epoch 39 --
+Training loss: 0.0144
+ -- Staring training epoch 40 --
+Training loss: 0.0144
+ -- Staring training epoch 41 --
+Training loss: 0.015
+Validation loss: 0.0344
+ -- Staring training epoch 42 --
+Training loss: 0.014
+ -- Staring training epoch 43 --
+Training loss: 0.0134
+ -- Staring training epoch 44 --
+Training loss: 0.0132
+ -- Staring training epoch 45 --
+Training loss: 0.0129
+ -- Staring training epoch 46 --
 Training loss: 0.0135
-Validation loss: 0.0368
- -- Staring training epoch 62 --
+ -- Staring training epoch 47 --
+Training loss: 0.0619
+ -- Staring training epoch 48 --
+Training loss: 0.0297
+ -- Staring training epoch 49 --
+Training loss: 0.0221
+ -- Staring training epoch 50 --
+Training loss: 0.019
+ -- Staring training epoch 51 --
+Training loss: 0.017
+Validation loss: 0.0354
+ -- Staring training epoch 52 --
+Training loss: 0.0156
+ -- Staring training epoch 53 --
+Training loss: 0.0145
+ -- Staring training epoch 54 --
+Training loss: 0.0139
+ -- Staring training epoch 55 --
+Training loss: 0.0131
+ -- Staring training epoch 56 --
+Training loss: 0.0127
+ -- Staring training epoch 57 --
 Training loss: 0.0125
- -- Staring training epoch 63 --
+ -- Staring training epoch 58 --
+Training loss: 0.0121
+ -- Staring training epoch 59 --
 Training loss: 0.0117
+ -- Staring training epoch 60 --
+Training loss: 0.012
+ -- Staring training epoch 61 --
+Training loss: 0.0113
+Validation loss: 0.0336
+ -- Staring training epoch 62 --
+Training loss: 0.011
+ -- Staring training epoch 63 --
+Training loss: 0.0108
  -- Staring training epoch 64 --
-Training loss: 0.0115
+Training loss: 0.0108
  -- Staring training epoch 65 --
-Training loss: 0.0112
+Training loss: 0.0105
  -- Staring training epoch 66 --
-Training loss: 0.0108
+Training loss: 0.0099
  -- Staring training epoch 67 --
-Training loss: 0.0108
+Training loss: 0.0099
  -- Staring training epoch 68 --
-Training loss: 0.0107
+Training loss: 0.0097
  -- Staring training epoch 69 --
-Training loss: 0.0104
- -- Staring training epoch 70 --
 Training loss: 0.01
-Validation loss: 0.0356
+ -- Staring training epoch 70 --
+Training loss: 0.0097
+Validation loss: 0.0333
  ** MEMBERSHIP INFERENCE ATTACK **
-Validation accuracy: 0.5 , AUC: 0.5 , F-score: 0.0
-TN: 500, FP: 0, FN: 500, TP: 0
+Validation accuracy: 0.499 , AUC: 0.499 , F-score: 0.0
+TN: 499, FP: 1, FN: 500, TP: 0
